@@ -8,8 +8,8 @@ fi
 
 # Check that shipyard is installed if not install it
 if ! [ -x "$(command -v yard)" ]; then
-  ./install.sh
+  curl -s http://shipyard.run/install.sh | bash
 fi
 
-#
+# apply ths blueprint
 yard apply $1
