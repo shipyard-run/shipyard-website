@@ -7,7 +7,6 @@
 
 module.exports = {
   docs: {
-    Docusaurus: ['windows', 'doc1', 'doc2', 'doc3'],
-    Features: ['mdx'],
+    Shipyard: ['install']
   },
 };

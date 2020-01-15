@@ -73,7 +73,18 @@ function Home() {
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
           <div>
-            Terminal
+            <img src='/img/install.svg'/>
+          </div>
+          <div style={{margin: '40px'}}></div>
+          <div>
+            <Link
+              className={classnames(
+                'button button--secondary button--lg',
+                styles.getStarted,
+              )}
+              to={useBaseUrl('docs/install')}>
+              Install Shipyard
+            </Link>
           </div>
         </div>
       </header>
@@ -82,9 +93,10 @@ function Home() {
           <section className={styles.features}>
             <div className="container">
               <div className="row">
-                {features.map((props, idx) => (
-                  <Feature key={idx} {...props} />
-                ))}
+                <h1>Try the Shipyard Vault and Kuberentes environment</h1>
+              </div>
+              <div className="row">
+                <h2>curl https://shipyard.run/apply | bash -s github.com/shipyard-run/blueprints//vault-k8s</h2>
               </div>
             </div>
           </section>
