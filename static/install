@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 echo "################################"
-echo "Installing Shipyard to /usr/loca/bin/yard2"
+echo "Installing Shipyard to /usr/local/bin/yard2"
 echo ""
 echo "Please note: You may be prompted for your password"
 echo ""
@@ -9,15 +9,18 @@ echo "To remove Shipyard and all configuration use the command \"yard2 uninstall
 
 # detect the OS version
 os=$(uname)
-binary="yard-darwin-amd64"
-version="v0.0.0.alpha.6"
+binary="shipyard-darwin-amd64.zip"
+version="v0.0.0.alpha.9"
 repo="https://github.com/shipyard-run/shipyard/releases/download/$version"
 
 if [[ $os == "Linux" ]]; then
-  binary="yard-linux-amd64"
+  binary="shipyard-linux-amd64.zip"
 fi
 
 echo "Downloading $repo/$binary"
-curl -L -s -o /tmp/yard2 "$repo/$binary"
-sudo mv /tmp/yard2 /usr/local/bin
+curl -L -s -o /tmp/shipyard.zip "$repo/$binary"
+cd /tmp
+unzip shipyard.zip
+sudo mv yard2 /usr/local/bin
 sudo chmod +x /usr/local/bin/yard2
+rm shipyard.zip
