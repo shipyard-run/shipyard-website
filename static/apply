@@ -12,4 +12,4 @@ if ! [ -x "$(command -v yard2)" ]; then
 fi
 
 # apply ths blueprint
-yard2 apply $1
+yard2 run $1
