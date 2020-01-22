@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/"
+  to = "/apply"
+  status = 200
+  force = false
+  headers = {User-Agent = "curl/*"}
