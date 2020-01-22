@@ -93,7 +93,7 @@ function Home() {
           <section className={styles.features}>
             <div className="container">
               <div className="row">
-                <h1>Try the Shipyard Vault and Kuberentes environment</h1>
+                <h1>Try the Shipyard Vault and Kubernetes environment</h1>
               </div>
               <div className="row">
                 <h2>curl https://shipyard.run/apply | bash -s github.com/shipyard-run/blueprints//vault-k8s</h2>
