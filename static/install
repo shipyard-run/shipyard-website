@@ -21,6 +21,6 @@ echo "Downloading $repo/$binary"
 curl -L -s -o /tmp/shipyard.zip "$repo/$binary"
 cd /tmp
 unzip shipyard.zip
-sudo mv yard2 /usr/local/bin/shipyard
-sudo chmod +x /usr/local/bin/shipyard
+sudo mv yard2 /usr/local/bin/yard2
+sudo chmod +x /usr/local/bin/yard2
 rm shipyard.zip
