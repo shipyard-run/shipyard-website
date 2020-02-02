@@ -96,7 +96,7 @@ function Home() {
                 <h1>Try the Shipyard Vault and Kubernetes environment</h1>
               </div>
               <div className="row">
-                <h2>curl https://shipyard.run/apply | bash -s github.com/shipyard-run/blueprints//vault-k8s</h2>
+                <pre>curl https://shipyard.run/apply | bash -s github.com/shipyard-run/blueprints//vault-k8s</pre>
               </div>
             </div>
           </section>
