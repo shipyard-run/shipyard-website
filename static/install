@@ -10,7 +10,7 @@ echo "To remove Shipyard and all configuration use the command \"yard2 uninstall
 # detect the OS version
 os=$(uname)
 binary="shipyard-darwin-amd64.zip"
-version="v0.0.0.alpha.10"
+version="v0.0.0.alpha.15"
 repo="https://github.com/shipyard-run/shipyard/releases/download/$version"
 
 if [[ $os == "Linux" ]]; then
@@ -21,6 +21,6 @@ echo "Downloading $repo/$binary"
 curl -L -s -o /tmp/shipyard.zip "$repo/$binary"
 cd /tmp
 unzip shipyard.zip
-sudo mv yard2 /usr/local/bin
-sudo chmod +x /usr/local/bin/yard2
+sudo mv shipyard /usr/local/bin
+sudo chmod +x /usr/local/bin/shipyard
 rm shipyard.zip

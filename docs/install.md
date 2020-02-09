@@ -32,22 +32,22 @@ Blueprints can either be run from the local filesystem
 ```shell
 git clone https://github.com/shipyard-run/blueprints.git
 cd blueprints
-yard2 run ./vault-k8s
+shipyard run ./vault-k8s
 ```
 
 or directly from the GitHub repository
 
 ```shell
-yard2 run github.com/shipyard-run/blueprints//vault-k8s
+shipyard run github.com/shipyard-run/blueprints//vault-k8s
 ```
 
 ## Stoping a blueprint
 
-To stop a blueprint use the `yard2 delete` command
+To stop a blueprint use the `shipyard destroy` command
 
 ```shell
-➜ yard2 delete 
-Shipyard version: v0.0.0.alpha.9
+➜ shipyard destroy 
+Shipyard version: v0.0.0.alpha.15
 
 Deleting 9 resources
 

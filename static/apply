@@ -7,9 +7,9 @@ if [[ $1 == "" ]]; then
 fi
 
 # Check that shipyard is installed if not install it
-if ! [ -x "$(command -v yard2)" ]; then
+if ! [ -x "$(command -v shipyard)" ]; then
   curl -s https://shipyard.run/install | bash
 fi
 
 # apply ths blueprint
-yard2 run $1
+shipyard run $1
