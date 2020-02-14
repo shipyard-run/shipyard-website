@@ -10,7 +10,7 @@ echo "To remove Shipyard and all configuration use the command \"shipyard uninst
 # detect the OS version
 os=$(uname)
 binary="shipyard-darwin-amd64.zip"
-version="v0.0.0.beta.1"
+version="v0.0.0.beta.3"
 repo="https://github.com/shipyard-run/shipyard/releases/download/$version"
 
 if [[ $os == "Linux" ]]; then
