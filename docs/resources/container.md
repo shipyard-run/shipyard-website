@@ -5,7 +5,7 @@ title: Container
 
 Container allows you to run Docker containers
 
-### Minimal Example
+## Minimal Example
 
 ```javascript
 container "unique_name" {
@@ -29,31 +29,28 @@ network "cloud" {
 shipyard run github.com/shipyard-run/shipyard-website/exampes/container//minimal
 ```
 
-# Parameters
+## Parameters
 
-## depends_on 
+### depends_on 
 **Type: []string**  
 **Required: false**
 
 Depends on allows you to specify resources which should be created before this one. In the instance of a destruction, this container will be destroyed before
 resources in.
 
-## network
-
+### network
 **Type: `network`**  
 **Required: true**
 
 Network attaches the container to an existing network defined in a separate stanza.
 
-## image
-
+### image
 **Type: `image`**  
 **Required: true**
 
 Image defines the Docker image to use when creating the container.
 
-## command
-
+### command
 **Type: []string**  
 **Required: false**
 
@@ -68,7 +65,7 @@ command = [
 ]
 ```
 
-### Full Example
+## Full Example
 
 ```javascript
 container "unique_name" {

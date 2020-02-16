@@ -8,6 +8,6 @@
 module.exports = {
   docs: {
     Shipyard: ['install'],
-    Documentation: ['resources/container']
+    Resources: ['resources/container']
   },
 };
