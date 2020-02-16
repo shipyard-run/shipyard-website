@@ -26,7 +26,7 @@ network "cloud" {
 #### Run this example:
 
 ```shell
-shipyard run github.com/shipyard-run/shipyard-website/exampes/container//minimal
+shipyard run github.com/shipyard-run/shipyard-website/examples/container//minimal
 ```
 
 ## Parameters
