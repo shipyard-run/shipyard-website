@@ -31,6 +31,9 @@ module.exports = {
           position: 'right',
         },
       ],
+      googleAnalytics: {
+        trackingID: 'UA-158626649-1',
+      },
     },
     footer: {
       style: 'dark',
@@ -92,4 +95,5 @@ module.exports = {
       },
     ],
   ],
+  
 };
