@@ -7,6 +7,7 @@
 
 module.exports = {
   docs: {
-    Shipyard: ['install']
+    Shipyard: ['install'],
+    Documentation: ['resources/container']
   },
 };
