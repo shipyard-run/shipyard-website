@@ -15,10 +15,10 @@ module.exports = {
   projectName: 'shipyard-website', // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: 'Shipyard',
+      title: '',
       logo: {
         alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        src: 'img/shipyard_horizontal.png',
       },
       links: [
         {to: 'docs/install', label: 'Docs', position: 'left'},

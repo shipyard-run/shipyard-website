@@ -70,7 +70,7 @@ function Home() {
       description="Description will go into a meta tag in <head />">
       <header className={classnames('hero hero--primary', styles.heroBanner)}>
         <div className="container">
-          <h1 className="hero__title">{siteConfig.title}</h1>
+          <h1 className="hero__title"><img src="/img/shipyard_horizontal.png"/></h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
           <div>
             <img src='/img/install.svg'/>
