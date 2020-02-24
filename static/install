@@ -18,13 +18,16 @@ if [[ $os == "Linux" ]]; then
 fi
 
 echo "Downloading $repo/$binary"
+rm -f /tmp/shipyard.zip
+rm -f /tmp/shipyard
+
 curl -L -s -o /tmp/shipyard.zip "$repo/$binary"
 cd /tmp
+
 unzip shipyard.zip
 rm shipyard.zip
 
-if sudo -n true
-then
+if sudo -vn 2> /dev/null; then
   sudo mv shipyard /usr/local/bin
   sudo chmod +x /usr/local/bin/shipyard
 else
@@ -33,4 +36,5 @@ else
   chmod +x /usr/local/bin/shipyard
 fi
 
-
+echo ""
+shipyard version
