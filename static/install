@@ -21,6 +21,17 @@ echo "Downloading $repo/$binary"
 curl -L -s -o /tmp/shipyard.zip "$repo/$binary"
 cd /tmp
 unzip shipyard.zip
-sudo mv shipyard /usr/local/bin
-sudo chmod +x /usr/local/bin/shipyard
 rm shipyard.zip
+
+CAN_I_RUN_SUDO=$(sudo -n uptime 2>&1|grep "load"|wc -l)
+if [ ${CAN_I_RUN_SUDO} -gt 0 ]
+then
+  sudo mv shipyard /usr/local/bin
+  sudo chmod +x /usr/local/bin/shipyard
+else
+  # try without sudo might be running in a container
+  mv shipyard /usr/local/bin
+  chmod +x /usr/local/bin/shipyard
+fi
+
+
