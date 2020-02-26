@@ -27,7 +27,7 @@ cd /tmp
 unzip shipyard.zip
 rm shipyard.zip
 
-if sudo -vn 2> /dev/null; then
+if which sudo; then
   sudo mv shipyard /usr/local/bin
   sudo chmod +x /usr/local/bin/shipyard
 else
