@@ -1,5 +1,7 @@
 # Website
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8bc774a9-105e-4547-af7e-25b1ae3e5fb0/deploy-status)](https://app.netlify.com/sites/happy-dubinsky-0c86ae/deploys)
+
 This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
 
 ### Installation
