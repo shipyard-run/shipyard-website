@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/shipyard
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://shipyard.run
+  * I am shipyard (https://keybase.io/shipyard) on keybase.
+  * I have a public key with fingerprint 3160 E104 7AF7 2ED0 40A7  C90C 77F0 5F1E F233 0B4D
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101a48e55306b43a9938f41d41d6507c325a971f1ce8754e477e2886f5eb4a8cb0d0a",
+      "fingerprint": "3160e1047af72ed040a7c90c77f05f1ef2330b4d",
+      "host": "keybase.io",
+      "key_id": "77f05f1ef2330b4d",
+      "kid": "0101a48e55306b43a9938f41d41d6507c325a971f1ce8754e477e2886f5eb4a8cb0d0a",
+      "uid": "4498594b479f5f036c4c963341a0c319",
+      "username": "shipyard"
+    },
+    "service": {
+      "hostname": "shipyard.run",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1583911113,
+  "expire_in": 157680000,
+  "prev": "de4e6273613606f77c1cf0658dee35c5ab0562b0cbca9052f8c0253f1ade83ac",
+  "seqno": 3,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.13
+Comment: https://keybase.io/crypto
+
+yMIhAnicrVJrSBVBFL5mV+qGFoERRq8lo0xkZmdmZ/dWUERPogiyB1aX2dkZ75be
+ve2umohE74ggoRck9PhRVkgPiegB0Qt6B5oYBNKTggwhf1REr1mpP9HPDgPDnPm+
+73zncG7n58YSObvXPJt2/8CnnpwHNw7WxNakm+41aLbn1GvJBm2d6L9ElSOCMLXO
+dbSkBiCADJuCEAQMGyNmWciUGDrqGARQjnTCLAol5MKkBAtMqdBN05BE2JiZ3AYO
+YFqpJt1MpfCzvpsJlSyCBhAQYMok1YUDMGCUW4BTKgGRUEgdIWBjRxHTXhAxlDmb
+BaLM9VROPVL99v6B/8++a/rlMLZMYmEbU0sSCZDBMbcMhDBkgCNoRcBA+BlWLRQ6
+SLvZeuY7WmOpprK1LhfRYKNO/kKU+TUZxc36Xuhxr0r9pMMwGyQjZlifjaB1wk79
+FknZbsZRc1SMWuEHrpfRklAheehGqpCYyIIqUKkmNmRdX6TcCEGoYQIVUR1RqyQd
+gYWhU2RAZABDUsohl8AgpiMEIpwwGxBDtwG3ObMA0aXJgU6QhMwRJmJci9pan/G0
+pKoUssqoIbcyw8IaX2iNN6+vGhjLScTy4gOi/YolBg/7s3VXOgbFWoqHbXm2bSNs
+suu+dnUU94z8ufBJxaS714YW4qeHWpaeKjIvTF/0bu+S9+PtzXvOLt/0vKDq4Ymt
+b4tvNTe9lglz3o5RO1e0JXqXfe1KVo9gqaMFfd+rx+W1D391Znt4Ka9ZX328OVi0
+t23f4dbe7varr1fubxzT96N2z5upsafdFxMNs+Y/7nyxqmj68nPPO432R6+mGd+G
+75hXsjou88od/4C3OLeCXpuit54PrtOgO+xoRyNWHGubUl7fd6eyp+4zn/BhzreJ
+XzbGUqn0kcLRL17evTxE35Ce8WbB6aIrY7Mls3/IXScXj5xcdnpm59xTH8vfaQUd
+24/FX9b1TopvWjs7P57/C1b5P/I=
+=y1Fq
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/shipyard
+
+==================================================================
