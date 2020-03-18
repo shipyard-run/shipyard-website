@@ -16,18 +16,18 @@ binary="shipyard_${version}_Darwin_x86_64.tar.gz"
 repo="https://github.com/shipyard-run/shipyard/releases/download/v${version}"
 
 if [[ $os == "Linux" ]]; then
-  binary="shipyard_${version}_Linux_x86_64.zip"
+  binary="shipyard_${version}_Linux_x86_64.tar.gz"
 fi
 
 echo "Downloading $repo/$binary"
-rm -f /tmp/shipyard.zip
+rm -f /tmp/shipyard.tar.gz
 rm -f /tmp/shipyard
 
-curl -L -s -o /tmp/shipyard.zip "$repo/$binary"
+curl -L -s -o /tmp/shipyard.tar.gz "$repo/$binary"
 cd /tmp
 
-unzip shipyard.zip
-rm shipyard.zip
+tar -xzf shipyard.tar.gz
+rm shipyard.tar.gz
 
 if which sudo; then
   sudo mv shipyard /usr/local/bin
