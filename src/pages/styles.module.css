@@ -40,3 +40,25 @@
   height: 200px;
   width: 200px;
 }
+
+div {
+  font-size: 1.1rem;
+}
+
+span {
+  font-size: 0.9rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+pre {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.section {
+  text-align: center;
+  margin-top: 4rem;
+}

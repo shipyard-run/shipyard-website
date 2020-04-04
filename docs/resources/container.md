@@ -3,7 +3,7 @@ id: container
 title: Container
 ---
 
-Container allows you to run Docker containers
+The Container resource allows you to run Docker containers.
 
 ## Minimal Example
 
@@ -264,8 +264,7 @@ The maximum duration to wait before marking the health check as failed. Expresse
 **Required: true**
 
 The URL to check, health check expects a HTTP status code `200` to be returned by the URL in order to pass the health check. Status code will be user
-configurable in a subsequent update.
-
+configurable at a later date.
 
 ## Full Example
 

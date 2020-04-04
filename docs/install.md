@@ -3,67 +3,100 @@ id: install
 title: Installing Shipyard
 ---
 
+Shipyard runs on MacOS, Linux and Windows (Natively and with WSL2)
+
+
 ## Prerequisites
 
-Shipyard runs on MacOS, Linux and Windows (with WSL), all applications run in Docker containers. To use Shipyard you need a recent version of Docker.
+To use Shipyard you need a recent version of Docker and the Git CLI installed on your system.
 
-[Docker](https://docs.docker.com/)
+* [Docker](https://docs.docker.com/) 
+* [Git](https://git-scm.com/)
 
-To install shipyard either use the quick install script:
+
+## Quick install (Linux, Mac and Windows WSL2)
+
+The quick install script allows you to easily install the latest version of Shipyard. Run the following command
+in your terminal, the install script will prompt you for administrator access if required.
 
 ```shell
 curl https://shipyard.run/install | bash
+
+################################
+Installing Shipyard to /usr/local/bin/shipyard
+
+Please note: You may be prompted for your password
+
+To remove Shipyard and all configuration use the command "shipyard uninstall"
+Downloading https://github.com/shipyard-run/shipyard/releases/download/v0.1.0/shipyard_0.1.0_linux_x86_64.tar.gz
+/usr/bin/sudo
+[sudo] password for nicj: 
+
+Shipyard version: 0.0.10
+
+###### SYSTEM DIAGNOSTICS ######
+ [   OK    ] Docker
+ [   OK    ] Git
+ [   OK    ] xdg-open
 ```
 
-or download the appropriate release from GitHub
+
+## Brew for Mac
+
+Shipyard is published as a [Brew](https://brew.sh) tap to install Shipyard using Homebrew run the following command in your terminal:
+
+```shell
+brew install shipyard-run/homebrew-repo/shipyard
+```
+
+
+## Chocolatey for Windows
+
+To install Shipyard on Windows (not Windows Subsystem WSL or WSL2), you can use the [Chocolatey](https://chocolatey.org/packages/shipyard) package.
+With Chocolatey installed, open a new powershell or command prompt and run the following command:
+
+```shell
+choco install shipyard
+```
+
+## Debian Packages
+
+Shipyard can be installed from the official package in Gemfury's repository, to install shipyard first add the repo to `apt`,
+and update the source lists.
+
+```
+echo "deb [trusted=yes] https://apt.fury.io/shipyard-run/ /" | sudo tee -a /etc/apt/sources.list.d/fury.list
+sudo apt-get update
+```
+
+You can then install Shipyard with the following command:
+
+```
+sudo apt-get install shipyard
+```
+
+## RPM Packages
+
+If you are using an operating system which supports RPM packages Shipyard can be install from the Gemfury `yum` repository.
+To install Shipyard, add the `yum` repo to your list of repositories.
+
+```
+echo "[fury] 
+name=Gemfury Private Repo 
+baseurl=https://yum.fury.io/shipyard-run/ 
+enabled=1 
+gpgcheck=0" | sudo tee -a /etc/yum/repos.d/fury.repo
+```
+
+You can then install Shipyard with the following command:
+
+```
+yum install shipyard
+```
+
+## Github Releases
+
+In addition to the above methods, we maintain Debian, RPM, and other packages in our GitHub releases. You can download
+the latest packages from the folowing location.
 
 [https://github.com/shipyard-run/shipyard/releases](https://github.com/shipyard-run/shipyard/releases)
-
-## Running your first blueprint
-
-Blueprints are packages of Shipyard configuration which allow you to run cloud native applications on your computer with Docker
-
-You can find an example blueprint at the following location:
-
-[https://github.com/shipyard-run/blueprints/tree/master/vault-k8s](https://github.com/shipyard-run/blueprints/tree/master/vault-k8s)
-
-Blueprints can either be run from the local filesystem
-
-```shell
-git clone https://github.com/shipyard-run/blueprints.git
-cd blueprints
-shipyard run ./vault-k8s
-```
-
-or directly from the GitHub repository
-
-```shell
-shipyard run github.com/shipyard-run/blueprints//vault-k8s
-```
-
-## Stoping a blueprint
-
-To stop a blueprint use the `shipyard destroy` command
-
-```shell
-➜ shipyard destroy 
-Shipyard version: v0.0.0.alpha.15
-
-Deleting 9 resources
-
-2020-01-15T16:31:19.775Z [INFO]  Destroy Documentation: ref=docs
-2020-01-15T16:31:19.775Z [INFO]  Destroy Container: parent_ref=docs ref=docs
-2020-01-15T16:31:20.178Z [INFO]  Destroy Container: parent_ref=docs ref=terminal
-2020-01-15T16:31:20.672Z [INFO]  Destroy Ingress: ref=k8s-dashboard
-2020-01-15T16:31:20.672Z [INFO]  Destroy Container: parent_ref=k8s-dashboard ref=k8s-dashboard
-2020-01-15T16:31:21.145Z [INFO]  Destroy Ingress: ref=vault-http
-2020-01-15T16:31:21.145Z [INFO]  Destroy Container: parent_ref=vault-http ref=vault-http
-2020-01-15T16:31:21.572Z [INFO]  Destroy Kubernetes configuration: ref=dashboard config=[/home/nicj/.shipyard/state/stack/k8s_config]
-2020-01-15T16:31:22.396Z [INFO]  Destroy Helm chart: ref=vault
-2020-01-15T16:31:22.396Z [INFO]  Destroy Cluster: ref=k3s
-2020-01-15T16:31:22.396Z [INFO]  Destroy Container: parent_ref=k3s ref=server.k3s
-2020-01-15T16:31:23.220Z [DEBUG] Deleting Volume: ref=k3s name=k3s.volume
-2020-01-15T16:31:23.228Z [INFO]  Destroy Container: ref=tools
-2020-01-15T16:31:23.748Z [INFO]  Destroy Network: ref=cloud
-2020-01-15T16:31:23.862Z [INFO]  Destroy Network: ref=wan
-```
