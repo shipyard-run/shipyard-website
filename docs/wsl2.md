@@ -21,3 +21,6 @@ http://k8s.ingress.shipyard.run:8443      > http://localhost:8443
 ```
 
 This issue also only affects the access of Shipyard resources from outside the WSL2 container, resolution inside the container should function correctly with IPv4.
+
+### Why Magic URLs?
+When exposing a service or resource to the local host Shipyard currently requires services to be exposed using unique ports. For example the resources `app-a.container.shipyard.run` and `app-b.container.shipyard.run` can not both expose their serivces on the same port because individual resources currently bind to the hosts IP address. From version v0.2.0, Shipyard will move to a shared ingress. Multiple resources can bind to a shared host port with traffic routed to the correct resource using HTTP Host Headers.
