@@ -7,7 +7,8 @@
 
 module.exports = {
   docs: {
-    Shipyard: ['install', 'running', 'wsl2'],
-    Resources: ['resources/container']
+    "Shipyard Introduction": ['install', 'running', 'wsl2'],
+    "Shipyard CLI": ['commands/purge'],
+    Resources: ['resources/container','resources/sidecar']
   },
 };
