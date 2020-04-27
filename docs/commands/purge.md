@@ -2,7 +2,7 @@
 id: purge
 title: Purge
 ---
-The purge command deletes any cached Docker images, Helm charts or downloaded Blueprints from Shipyard.
+The purge command deletes cached Docker images, Helm charts or downloaded Blueprints from Shipyard.
 
 ## Command Usage
 ```shell
