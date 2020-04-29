@@ -15,6 +15,7 @@ module.exports = {
     Resources: [
       'resources/container',
       'resources/sidecar',
+      'resources/exec_remote',
       'resources/module'
     ]
   },
