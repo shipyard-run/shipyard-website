@@ -16,6 +16,10 @@ module.exports = {
     Resources: [
       'resources/container',
       'resources/sidecar',
+      'resources/k8s_cluster',
+      'resources/k8s_config',
+      'resources/k8s_ingress',
+      'resources/helm',
       'resources/exec_remote',
       'resources/module'
     ]

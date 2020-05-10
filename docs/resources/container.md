@@ -3,7 +3,7 @@ id: container
 title: Container
 ---
 
-The Container resource allows you to run Docker containers.
+The `container` resource allows you to run Docker containers.
 
 ## Minimal Example
 
