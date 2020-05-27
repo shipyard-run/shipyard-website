@@ -97,7 +97,7 @@ volume {
 **Type: port**  
 **Required: false**
 
-A port stanza allows you to expose container ports on the host.
+A port stanza allows you to expose container ports on the host. This stanza can be specified multiple times.
 
 ```javascript
 port {
@@ -248,6 +248,12 @@ The host port to map the local port to.
 
 The protocol to use when exposing the port, can be "tcp", or "udp".
 
+### open_in_browser
+**Type: `string`**  
+**Required: false**
+**Default: "/"**
+
+Should a browser window be automatically opened when this resource is created. Browser windows will open at the path specified by this property.
 
 ## Type `health_check`
 

@@ -20,6 +20,9 @@ module.exports = {
       'resources/k8s_config',
       'resources/k8s_ingress',
       'resources/helm',
+      'resources/nomad_cluster',
+      'resources/nomad_job',
+      'resources/nomad_ingress',
       'resources/exec_remote',
       'resources/module'
     ]

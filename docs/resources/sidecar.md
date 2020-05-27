@@ -97,6 +97,23 @@ Target container to attach the sidecar to, e.g. `container.consul`.
 
 Image defines a Docker image to use when creating the container.
 
+### entrypoint
+**Type: []string**  
+**Required: false**
+
+Entrypoint allows you to specify a command to execute when starting a container. Entrypoint is specified as an array of strings, each part of the
+command is a separate string. For example, to start a container and follow logs at /dev/null the following command could be used.
+
+```javascript
+command = [
+    "tail",
+    "-f",
+    "/dev/null"
+]
+```
+
+Entrypoint can be used in addition with `command`, Docker containers often define an entrypoint which configures the base command to run, `command` is then used to specifcy additional parameters. 
+
 ### command
 **Type: []string**  
 **Required: false**
