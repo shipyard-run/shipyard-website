@@ -160,6 +160,12 @@ args = [
 ]
 ```
 
+### working_directory
+**Type: string**  
+**Required: false**
+
+Set the working directory where the command will be executed.
+
 ### environment
 **Type: key_value**  
 **Required: false**
