@@ -150,6 +150,19 @@ network {
 Static IP address to assign container for the network, the ip address must be within range defined by the network subnet.
 If this parameter is ommitted an IP address will be automatically assigned.
 
+### aliases
+**Type: `[]string`**  
+**Required: false**
+
+Aliases allow alternate names to specified for the container. Aliases can be used to reference a container across the network, the container
+will responde to ping and other network resolution using the primary assigned name `[name].container.shipyard.run` and the aliases.
+
+```javascript
+network {
+  name = "network.cloud"
+  aliases = ["alt1.container.shipyard.run", "alt2.container.shipyard.run"]
+}
+```
 
 ## Type `image`
 
