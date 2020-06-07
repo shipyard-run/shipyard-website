@@ -46,7 +46,7 @@ function Home() {
             <div className="col">
               <h1>Try the Shipyard Vault and Kubernetes environment</h1>
               <pre>
-                curl https://shipyard.run/apply | bash -s github.com/shipyard-run/blueprints//vault-k8s
+                curl https://shipyard.run/blueprint | bash -s github.com/shipyard-run/blueprints//vault-k8s
               </pre>
               <p className={styles.section}>
                 <h2>Or view the <a href="/docs/install">documentation</a> for other installation options.</h2>
