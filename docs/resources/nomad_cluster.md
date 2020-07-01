@@ -20,5 +20,5 @@ network {
 ```
 
 ```
-shipyard run github.com/shipyard-website/examples/nomad_cluster//minimal
+shipyard run github.com/shipyard-run/shipyard-website/examples/nomad_cluster//minimal
 ```
