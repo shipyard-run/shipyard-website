@@ -48,6 +48,9 @@ exec_remote "exec_standalone" {
 
 ```shell
 ➜ shipyard run github.com/shipyard-run/shipyard-website/examples/exec_remote/exec_stand_alone
+```
+
+```shell
 Running configuration from:  examples/exec_remote/exec_container
 
 2020-04-29T09:15:23.331+0100 [DEBUG] Statefile does not exist
@@ -84,6 +87,11 @@ exec_remote "exec_container" {
 
 ```shell
 ➜ shipyard run github.com/shipyard-run/shipyard-website/examples/exec_remote/exec_container
+```
+
+Example output:
+
+```shell
 Running configuration from:  ./examples/exec_remote/exec_container
 
 2020-04-29T09:09:48.593+0100 [DEBUG] Statefile does not exist
@@ -97,7 +105,6 @@ Running configuration from:  ./examples/exec_remote/exec_container
 2020-04-29T09:10:05.187+0100 [INFO]  Remote executing command: ref=exec_container command=consul args=[services, register, /config/redis.hcl] image=<nil>
 2020-04-29T09:10:05.189+0100 [DEBUG] 
 2020-04-29T09:10:05.435+0100 [DEBUG] Registered service: redis
-
 ```
 
 

@@ -58,7 +58,11 @@ network "cloud" {
 
 ```shell
 shipyard run github.com/shipyard-run/shipyard-website/examples/sidecar//minimal
+```
 
+Inspect the Service:
+
+```shell
 ➜ curl localhost:8080
 {
   "name": "Service",
