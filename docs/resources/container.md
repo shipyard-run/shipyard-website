@@ -31,7 +31,7 @@ shipyard run github.com/shipyard-run/shipyard-website/examples/container//minima
 
 ## Parameters
 
-### depends_on 
+### depends_on
 **Type: []string**  
 **Required: false**
 
@@ -166,7 +166,7 @@ network {
 
 ## Type `image`
 
-Image defines a Docker image used when creating this container. An Image can be stored in a public or a private repository.  
+Image defines a Docker image used when creating this container. An Image can be stored in a public or a private repository.
 
 ### name
 **Type: `string`**  

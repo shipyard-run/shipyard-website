@@ -78,14 +78,14 @@ shipyard run github.com/shipyard-run/shipyard-website/examples/sidecar//minimal
 
 ## Parameters
 
-### depends_on 
+### depends_on
 **Type: []string**  
 **Required: false**
 
 Depends on allows you to specify resources which should be created before this one. In the instance of a destruction, this container will be destroyed before
 resources in.
 
-### target 
+### target
 **Type: string**  
 **Required: true**
 
@@ -112,7 +112,7 @@ command = [
 ]
 ```
 
-Entrypoint can be used in addition with `command`, Docker containers often define an entrypoint which configures the base command to run, `command` is then used to specifcy additional parameters. 
+Entrypoint can be used in addition with `command`, Docker containers often define an entrypoint which configures the base command to run, `command` is then used to specifcy additional parameters.
 
 ### command
 **Type: []string**  
@@ -179,7 +179,7 @@ health_check {
 
 ## Type `image`
 
-Image defines a Docker image used when creating this container. An Image can be stored in a public or a private repository.  
+Image defines a Docker image used when creating this container. An Image can be stored in a public or a private repository.
 
 ### name
 **Type: `string`**  
