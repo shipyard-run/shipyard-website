@@ -73,7 +73,7 @@ command = [
 An environment stanza allows you to set environment variables in the container. This stanza can be specified multiple times.
 
 ```javascript
-environment {
+env {
   key = "PATH"
   value = "/usr/local/bin"
 }
@@ -323,7 +323,7 @@ container "unique_name" {
         host   = 18500
     }
 
-    priviledged = false
+    privileged = false
 }
 
 network "cloud" {

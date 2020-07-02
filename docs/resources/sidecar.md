@@ -314,7 +314,7 @@ sidecar "envoy" {
     value = "http://localhost:8500"
   }
     
-  priviledged = false
+  privileged = false
 }
 
 network "cloud" {
