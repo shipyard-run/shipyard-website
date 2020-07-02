@@ -3,7 +3,7 @@ id: k8s_cluster
 title: Kubernetes Cluster
 ---
 
-The `k8s_cluster` resource allows the creation of Kubernetes clusters running in Docker. 
+The `k8s_cluster` resource allows the creation of Kubernetes clusters running in Docker.
 
 ## Minimal example
 
@@ -50,7 +50,7 @@ Besides using local tooling to deploy applications to your cluster you can use t
 
 The following example shows a `helm` resource which would install a remote Helm chart for HashiCorp Vault.
 
-Since Shipyard has a full understanding of the dependencies in your application the `helm` charts do not run until the cluster is fully up and running. Simply referencing the cluster in the `helm` chart stanza is the only thing required. Health checks can also be added to `helm` chart resources ensuring the next step of the dependency chain does not start before the applicaiton is running. 
+Since Shipyard has a full understanding of the dependencies in your application the `helm` charts do not run until the cluster is fully up and running. Simply referencing the cluster in the `helm` chart stanza is the only thing required. Health checks can also be added to `helm` chart resources ensuring the next step of the dependency chain does not start before the applicaiton is running.
 
 For more information on the `helm` resource type please see the documentation for that resource `/docs/resources/helm`.
 
@@ -113,7 +113,7 @@ k8s_ingress "vault-http" {
 
 ## Parameters
 
-### depends_on 
+### depends_on
 **Type: []string**  
 **Required: false**
 
@@ -149,7 +149,7 @@ Number of client nodes to create for a cluster, a value of 1 creates a combined 
 **Type: [[]image](#type-image)**  
 **Required: false**
 
-The `image` block allows you to specifiy images which will be copied from the local cache to the remote cluster. Kubernetes clusters have their own local Docker image cache, if images are not preloaded to the local cache then Kubernetes will attempt to retrieve these from a remote repository when starting a container. 
+The `image` block allows you to specifiy images which will be copied from the local cache to the remote cluster. Kubernetes clusters have their own local Docker image cache, if images are not preloaded to the local cache then Kubernetes will attempt to retrieve these from a remote repository when starting a container.
 
 `image` can also be used to push local builds which are not stored in a remote container registry.
 
@@ -158,7 +158,7 @@ Can be specified multiple times.
 
 ## Type `image`
 
-Image defines a Docker image used when creating this container. An Image can be stored in a public or a private repository.  
+Image defines a Docker image used when creating this container. An Image can be stored in a public or a private repository.
 
 ### name
 **Type: `string`**  
