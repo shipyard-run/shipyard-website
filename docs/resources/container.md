@@ -66,16 +66,24 @@ command = [
 ]
 ```
 
-### environment
+### env
 **Type: key_value**  
 **Required: false**
 
-An environment stanza allows you to set environment variables in the container. This stanza can be specified multiple times.
+An env stanza allows you to set environment variables in the container. This stanza can be specified multiple times.
 
 ```javascript
-environment {
+env {
   key = "PATH"
   value = "/usr/local/bin"
+}
+```
+
+Note the above format will be depricated soon to use cleaner map based format.
+
+```javascript
+env {
+  "key": "value"
 }
 ```
 
