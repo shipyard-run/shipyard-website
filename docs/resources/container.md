@@ -105,12 +105,27 @@ volume {
 **Type: port**  
 **Required: false**
 
-A port stanza allows you to expose container ports on the host. This stanza can be specified multiple times.
+A port stanza allows you to expose container ports on the local network or host. This stanza can be specified multiple times.
 
 ```javascript
 port {
   local = 80
   host = 8080
+}
+```
+
+### port_range
+**Type: port_range**  
+**Required: false**
+
+A port_range stanza allows you to expose a range of container ports on the local network or host. This stanza can be specified multiple times.
+
+The following example would create 11 ports from 80 to 90 (inclusive) and expose them to the host machine.
+
+```javascript
+port {
+  range = "80-90"
+  enable_host = true
 }
 ```
 
@@ -276,6 +291,30 @@ The protocol to use when exposing the port, can be "tcp", or "udp".
 
 Should a browser window be automatically opened when this resource is created. Browser windows will open at the path specified by this property.
 
+## Type `port_range`
+
+A port_range stanza defines host to container communications by exposing a range of ports for the container.
+
+### range
+**Type: `string`**  
+**Required: true**
+
+The port range to expose, e.g, `8080-8082` would expose the ports `8080`, `8081`, `8082`.
+
+### enable_host
+**Type: `boolean`**  
+**Required: false**
+**Default: false**
+
+The host port to map the local port to.
+
+### protocol
+**Type: `string "tcp", "udp"`**  
+**Required: false**
+**Default: "tcp"**
+
+The protocol to use when exposing the port, can be "tcp", or "udp".
+
 ## Type `health_check`
 
 A health_check stanza allows the definition of a health check which must pass before the container is marked as successfully created.
@@ -329,6 +368,11 @@ container "unique_name" {
         source = 8500
         remote = 8500
         host   = 18500
+    }
+    
+    port_range {
+        range         = "9000-9002"
+        enable_host   = true
     }
 
     priviledged = false
