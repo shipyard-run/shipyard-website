@@ -97,6 +97,6 @@ yum install shipyard
 ## Github Releases
 
 In addition to the above methods, we maintain Debian, RPM, and other packages in our GitHub releases. You can download
-the latest packages from the folowing location.
+the latest packages from the following location.
 
 [https://github.com/shipyard-run/shipyard/releases](https://github.com/shipyard-run/shipyard/releases)
