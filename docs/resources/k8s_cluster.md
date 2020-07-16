@@ -32,7 +32,7 @@ shipyard run github.com/shipyard-run/shipyard-website/examples/k8s_cluster//mini
 
 ## Description
 
-`k8s_cluster` resources run in an isolated Docker container using [Ranchers K3s](https://k3s.io/). On creation the `k8s_cluster` resource adds a Kubernetes Configuration file to your local computer to at the path `${HOME}/.shipyard/config/<cluster name>/kubeconfig.yaml`. This allows you to interact with the cluster using local tooling like `kubectl` and `helm`.
+`k8s_cluster` resources run in an isolated Docker container using [Rancher's K3s](https://k3s.io/). On creation the `k8s_cluster` resource adds a Kubernetes Configuration file to your local computer to at the path `${HOME}/.shipyard/config/<cluster name>/kubeconfig.yaml`. This allows you to interact with the cluster using local tooling like `kubectl` and `helm`.
 
 ```
 ➜ kubectl get pods --all-namespaces
