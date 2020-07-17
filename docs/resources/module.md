@@ -4,7 +4,7 @@ title: Module
 ---
 
 The module resource allows a blueprint to reference other files or blueprints. Blueprints can be referenced from the local file system or from GitHub 
-repositoryies
+repositories
 
 
 ## Minimal Example

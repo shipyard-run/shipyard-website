@@ -3,7 +3,7 @@ id: k8s_cluster
 title: Kubernetes Cluster
 ---
 
-The `k8s_cluster` resource allows the creation of Kubernetes clusters running in Docker. 
+The `k8s_cluster` resource allows the creation of Kubernetes clusters running in Docker.
 
 ## Minimal example
 
@@ -32,7 +32,7 @@ shipyard run github.com/shipyard-run/shipyard-website/examples/k8s_cluster//mini
 
 ## Description
 
-`k8s_cluster` resources run in an issolated Docker container using [Ranchers K3s](https://k3s.io/). On creation the `k8s_cluster` resource adds a Kubernetes Configuration file to your local computer to at the path `${HOME}/.shipyard/config/<cluster name>/kubeconfig.yaml`. This allows you to interact with the cluster using local tooling like `kubectl` and `helm`.
+`k8s_cluster` resources run in an isolated Docker container using [Rancher's K3s](https://k3s.io/). On creation the `k8s_cluster` resource adds a Kubernetes Configuration file to your local computer to at the path `${HOME}/.shipyard/config/<cluster name>/kubeconfig.yaml`. This allows you to interact with the cluster using local tooling like `kubectl` and `helm`.
 
 ```
 ➜ kubectl get pods --all-namespaces
@@ -50,7 +50,7 @@ Besides using local tooling to deploy applications to your cluster you can use t
 
 The following example shows a `helm` resource which would install a remote Helm chart for HashiCorp Vault.
 
-Since Shipyard has a full understanding of the dependencies in your application the `helm` charts do not run until the cluster is fully up and running. Simply referencing the cluster in the `helm` chart stanza is the only thing required. Health checks can also be added to `helm` chart resources ensuring the next step of the dependency chain does not start before the applicaiton is running. 
+Since Shipyard has a full understanding of the dependencies in your application the `helm` charts do not run until the cluster is fully up and running. Simply referencing the cluster in the `helm` chart stanza is the only thing required. Health checks can also be added to `helm` chart resources ensuring the next step of the dependency chain does not start before the applicaiton is running.
 
 For more information on the `helm` resource type please see the documentation for that resource `/docs/resources/helm`.
 
@@ -91,7 +91,7 @@ k8s_config "app" {
 
 ## Exposing resources
 
-Resources running in your Kuberenetes cluster can be exposed using the [k8s_ingress](/docs/resources/k8s_ingress) resource type. The following example shows how a Kubernetes service `vault` port 8200 can be exposed to the local host at port 18200. For more information on the `k8s_ingress` resource please see the documentation [/docs/resouces/k8s_ingress](/docs/resources/k8s_ingress).
+Resources running in your Kubernetes cluster can be exposed using the [k8s_ingress](/docs/resources/k8s_ingress) resource type. The following example shows how a Kubernetes service `vault` port 8200 can be exposed to the local host at port 18200. For more information on the `k8s_ingress` resource please see the documentation [/docs/resouces/k8s_ingress](/docs/resources/k8s_ingress).
 
 ```javascript
 k8s_ingress "vault-http" {
@@ -113,7 +113,7 @@ k8s_ingress "vault-http" {
 
 ## Parameters
 
-### depends_on 
+### depends_on
 **Type: []string**  
 **Required: false**
 
@@ -137,7 +137,7 @@ The `k8s_cluster` resource can create Kubernetes clusters using different versio
 **Type: `string`**  
 **Required: false**
 
-Version of the driver to use, for a list of supported values please see the [matrix](#supported-kuberentes-versions) below. If not specified the latest version of the driver will be used.
+Version of the driver to use, for a list of supported values please see the [matrix](#supported-kubernetes-versions) below. If not specified the latest version of the driver will be used.
 
 ### nodes
 **Type: `int`**  
@@ -149,7 +149,7 @@ Number of client nodes to create for a cluster, a value of 1 creates a combined 
 **Type: [[]image](#type-image)**  
 **Required: false**
 
-The `image` block allows you to specifiy images which will be copied from the local cache to the remote cluster. Kubernetes clusters have their own local Docker image cache, if images are not preloaded to the local cache then Kubernetes will attempt to retrieve these from a remote repository when starting a container. 
+The `image` block allows you to specifiy images which will be copied from the local cache to the remote cluster. Kubernetes clusters have their own local Docker image cache, if images are not preloaded to the local cache then Kubernetes will attempt to retrieve these from a remote repository when starting a container.
 
 `image` can also be used to push local builds which are not stored in a remote container registry.
 
@@ -158,7 +158,7 @@ Can be specified multiple times.
 
 ## Type `image`
 
-Image defines a Docker image used when creating this container. An Image can be stored in a public or a private repository.  
+Image defines a Docker image used when creating this container. An Image can be stored in a public or a private repository.
 
 ### name
 **Type: `string`**  
@@ -188,7 +188,7 @@ image {
 }
 ```
 
-## Supported Kuberentes Versions
+## Supported Kubernetes Versions
 
 Driver | Version
 ------ | --------

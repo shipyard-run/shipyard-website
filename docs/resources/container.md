@@ -66,16 +66,24 @@ command = [
 ]
 ```
 
-### environment
+### env
 **Type: key_value**  
 **Required: false**
 
-An environment stanza allows you to set environment variables in the container. This stanza can be specified multiple times.
+An env stanza allows you to set environment variables in the container. This stanza can be specified multiple times.
 
 ```javascript
 env {
   key = "PATH"
   value = "/usr/local/bin"
+}
+```
+
+Note the above format will be deprecated soon to use cleaner map based format.
+
+```javascript
+env {
+  "key": "value"
 }
 ```
 
@@ -97,7 +105,7 @@ volume {
 **Type: port**  
 **Required: false**
 
-A port stanza allows you to expose container ports on the host. This stanza can be specified multiple times.
+A port stanza allows you to expose container ports on the local network or host. This stanza can be specified multiple times.
 
 ```javascript
 port {
@@ -106,18 +114,33 @@ port {
 }
 ```
 
+### port_range
+**Type: port_range**  
+**Required: false**
+
+A port_range stanza allows you to expose a range of container ports on the local network or host. This stanza can be specified multiple times.
+
+The following example would create 11 ports from 80 to 90 (inclusive) and expose them to the host machine.
+
+```javascript
+port {
+  range = "80-90"
+  enable_host = true
+}
+```
+
 ### privileged
 **Type: boolean**  
 **Required: false**
 **Default: false**
 
-Should the container run in Docker privledged mode?
+Should the container run in Docker privileged mode?
 
 ### health_check
 **Type: health_check**  
 **Required: false**
 
-Define a health check for the container, the resource will only be marked as succesfully created when the health check passes.
+Define a health check for the container, the resource will only be marked as successfully created when the health check passes.
 
 ```javascript
 health_check {
@@ -148,14 +171,14 @@ network {
 **Required: false**
 
 Static IP address to assign container for the network, the ip address must be within range defined by the network subnet.
-If this parameter is ommitted an IP address will be automatically assigned.
+If this parameter is omitted an IP address will be automatically assigned.
 
 ### aliases
 **Type: `[]string`**  
 **Required: false**
 
 Aliases allow alternate names to specified for the container. Aliases can be used to reference a container across the network, the container
-will responde to ping and other network resolution using the primary assigned name `[name].container.shipyard.run` and the aliases.
+will respond to ping and other network resolution using the primary assigned name `[name].container.shipyard.run` and the aliases.
 
 ```javascript
 network {
@@ -268,6 +291,30 @@ The protocol to use when exposing the port, can be "tcp", or "udp".
 
 Should a browser window be automatically opened when this resource is created. Browser windows will open at the path specified by this property.
 
+## Type `port_range`
+
+A port_range stanza defines host to container communications by exposing a range of ports for the container.
+
+### range
+**Type: `string`**  
+**Required: true**
+
+The port range to expose, e.g, `8080-8082` would expose the ports `8080`, `8081`, `8082`.
+
+### enable_host
+**Type: `boolean`**  
+**Required: false**
+**Default: false**
+
+The host port to map the local port to.
+
+### protocol
+**Type: `string "tcp", "udp"`**  
+**Required: false**
+**Default: "tcp"**
+
+The protocol to use when exposing the port, can be "tcp", or "udp".
+
 ## Type `health_check`
 
 A health_check stanza allows the definition of a health check which must pass before the container is marked as successfully created.
@@ -321,6 +368,11 @@ container "unique_name" {
         source = 8500
         remote = 8500
         host   = 18500
+    }
+    
+    port_range {
+        range         = "9000-9002"
+        enable_host   = true
     }
 
     privileged = false

@@ -3,7 +3,7 @@ id: exec_remote
 title: Remote Exec
 ---
 
-The Remove Exec resource allows the execution of arbitary commands and scripts. Execution can either be in a stand
+The Remove Exec resource allows the execution of arbitrary commands and scripts. Execution can either be in a stand
 alone container or can target an existing and running container.
 
 ## Minimal Example
@@ -48,6 +48,9 @@ exec_remote "exec_standalone" {
 
 ```shell
 ➜ shipyard run github.com/shipyard-run/shipyard-website/examples/exec_remote/exec_stand_alone
+```
+
+```shell
 Running configuration from:  examples/exec_remote/exec_container
 
 2020-04-29T09:15:23.331+0100 [DEBUG] Statefile does not exist
@@ -84,6 +87,11 @@ exec_remote "exec_container" {
 
 ```shell
 ➜ shipyard run github.com/shipyard-run/shipyard-website/examples/exec_remote/exec_container
+```
+
+Example output:
+
+```shell
 Running configuration from:  ./examples/exec_remote/exec_container
 
 2020-04-29T09:09:48.593+0100 [DEBUG] Statefile does not exist
@@ -97,7 +105,6 @@ Running configuration from:  ./examples/exec_remote/exec_container
 2020-04-29T09:10:05.187+0100 [INFO]  Remote executing command: ref=exec_container command=consul args=[services, register, /config/redis.hcl] image=<nil>
 2020-04-29T09:10:05.189+0100 [DEBUG] 
 2020-04-29T09:10:05.435+0100 [DEBUG] Registered service: redis
-
 ```
 
 
@@ -125,7 +132,7 @@ One of `target` or `image` must be specified.
 
 Attaches the container to an existing network defined by the `network` resource stanza. This block can be specified multiple times to attach the container to multiple networks.
 
-This block is ignored when `target` is specficied.
+This block is ignored when `target` is specified.
 
 ### image
 **Type: `image`**  

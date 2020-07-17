@@ -39,7 +39,7 @@ D:\Downloads>dir
 
 Install Docker for Windows
 
-Docker for windows needs drives enabled, select the drives you want to share with Docker, this needs to be the drive where your HOME folder is located (normaly C:) and any drives from where you plan to run Shipyard configuration.
+Docker for windows needs drives enabled, select the drives you want to share with Docker, this needs to be the drive where your HOME folder is located (normally C:) and any drives from where you plan to run Shipyard configuration.
 
 ![](/img/docs/windows/docker_1.png)
 

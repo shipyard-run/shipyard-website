@@ -2,7 +2,7 @@
 id: env
 title: Env
 ---
-The env command prints a formatted list of environment variables defined in a blueprint which can be interpretted by the operating system.
+The env command prints a formatted list of environment variables defined in a blueprint which can be interpreted by the operating system.
 
 **Example blueprint defining environment variables - README.md**
 ```

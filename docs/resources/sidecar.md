@@ -6,7 +6,7 @@ title: Sidecar
 The Sidecar resource allows you to run associated processes for Containers. Sidecar does not have its own network, a Sidecar resource
 shares the network with the target container. For example, `localhost` in the `sidecar` is localhost` in the `container`.
 
-Sidecar resources are not routable in the same way as container resrouces are. You can not map an ingress to a sidecar and a sidecar can
+Sidecar resources are not routable in the same way as container resources are. You can not map an ingress to a sidecar and a sidecar can
 not expose ports. Traffic which is destined for a process running in a sidecar must be sent to the target container. The following example
 highlights this capability.
 
@@ -58,7 +58,11 @@ network "cloud" {
 
 ```shell
 shipyard run github.com/shipyard-run/shipyard-website/examples/sidecar//minimal
+```
 
+Inspect the Service:
+
+```shell
 ➜ curl localhost:8080
 {
   "name": "Service",
@@ -112,7 +116,7 @@ command = [
 ]
 ```
 
-Entrypoint can be used in addition with `command`, Docker containers often define an entrypoint which configures the base command to run, `command` is then used to specifcy additional parameters.
+Entrypoint can be used in addition with `command`, Docker containers often define an entrypoint which configures the base command to run, `command` is then used to specify additional parameters.
 
 ### command
 **Type: []string**  
@@ -161,13 +165,13 @@ volume {
 **Required: false**
 **Default: false**
 
-Should the container run in Docker privledged mode?
+Should the container run in Docker privileged mode?
 
 ### health_check
 **Type: health_check**  
 **Required: false**
 
-Define a health check for the container, the resource will only be marked as succesfully created when the health check passes.
+Define a health check for the container, the resource will only be marked as successfully created when the health check passes.
 
 ```javascript
 health_check {

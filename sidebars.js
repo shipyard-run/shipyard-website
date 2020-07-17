@@ -11,7 +11,8 @@ module.exports = {
     "Shipyard CLI": [
       'commands/env',
       'commands/purge',
-      'commands/push'
+      'commands/push',
+      'commands/test',
     ],
     Resources: [
       'resources/container',
@@ -25,6 +26,9 @@ module.exports = {
       'resources/nomad_ingress',
       'resources/exec_remote',
       'resources/module'
+    ],
+    Tutorials: [
+      'tutorials/testing'
     ]
   },
 };
