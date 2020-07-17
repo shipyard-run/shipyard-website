@@ -9,6 +9,7 @@ module.exports = {
   docs: {
     "Shipyard Introduction": ['install', 'running', 'wsl2'],
     "Shipyard CLI": [
+      'commands/run',
       'commands/env',
       'commands/purge',
       'commands/push',

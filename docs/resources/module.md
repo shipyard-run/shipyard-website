@@ -3,8 +3,9 @@ id: module
 title: Module
 ---
 
-The module resource allows a blueprint to reference other files or blueprints. Blueprints can be referenced from the local file system or from GitHub 
-repositoryies
+The module resource allows a blueprint to reference other files or blueprints. Blueprints can be referenced from the local file system or from GitHub repositoryies.
+
+It is also possible to attach dependencies to modules and use modules as dependencies in other resources.
 
 
 ## Minimal Example
@@ -46,3 +47,21 @@ Running configuration from:  ./examples/modules
 **Required: true**
 
 Source of the Blueprint to include, can either be a local path `./sub_folder` or a remote GitHub repository `github.com/shipyard-run/blueprints//consul-nomad`
+
+### depends_on
+**Type: []string**  
+**Required: false**
+
+Depends On allows you to attach dependencies to module creation, dependencies in Shipyard control the order by which resources are created and destroyed. In the following example the module `nomad` would not be created until all the resources defined by module `consul` have been created.
+
+```javascript
+module "consul" {
+	source = "./sub_module"
+}
+
+// Reference a remote Blueprint stored in a GitHub repository
+module "nomad" {
+  depends_on = ["module.consul"]
+	source = "github.com/shipyard-run/blueprints//consul-nomad"
+}
+```
