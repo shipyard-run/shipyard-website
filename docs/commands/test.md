@@ -19,7 +19,7 @@ Flags:
 ```
 
 ## Example test
-The following example shows a test which would start a blueprint, and assert that the defined resources are created and running, as well as applications defined by the blueprint are accessible and functioning correctly by checking the HTTP response. For more information on the satements please see the [Testing Statements](#testing-statements) section below.
+The following example shows a test which would start a blueprint, and assert that the defined resources are created and running, as well as applications defined by the blueprint are accessible and functioning correctly by checking the HTTP response. For more information on the statements please see the [Testing Statements](#testing-statements) section below.
 
 ```javascript
 Feature: Docker Container
@@ -101,10 +101,10 @@ container "consul" {
 }
 ```
 
-When you run your tests the environment varaible will be set and interpolated before the blueprint is created.
+When you run your tests the environment variable will be set and interpolated before the blueprint is created.
 
-### The following environment varaibles are set
-This statement is similar to the previous except you can define the list of environment varaibles using a table.
+### The following environment variables are set
+This statement is similar to the previous except you can define the list of environment variables using a table.
 
 ```javascript
 Scenario: Single Container from Local Blueprint
@@ -112,7 +112,7 @@ Scenario: Single Container from Local Blueprint
     | key            | value                 |
     | CONSUL_VERSION | 1.8.0                 |
     | ENVOY_VERSION  | 1.14.3                |
-  And I have a running blueprin
+  And I have a running blueprint
 ```
 
 ### There should be a `"<resource type>"` running called `"<name>"`

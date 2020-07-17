@@ -52,13 +52,13 @@ The Kubernetes cluster where the target application is running.
 **Type: `string`**  
 **Required: false**
 
-File path resolving to a YAML file containg values for the Helm chart.
+File path resolving to a YAML file containing values for the Helm chart.
 
 ### values_string
 **Type: `map[string]string`**  
 **Required: false**
 
-Map of keys and values to set for the Helm chart. Heirachy in the Helm YAML for keys is replaced by chaining properties with a `.`
+Map of keys and values to set for the Helm chart. Hierarchy in the Helm YAML for keys is replaced by chaining properties with a `.`
 
 
 For example, given the following YAML values:
@@ -91,7 +91,7 @@ Kubernetes namespace to install the chart to.
 **Type: [HealthCheck](HealthCheck)**  
 **Required: true**
 
-Define a health check for the `k8s_config`, the resource will only be marked as succesfully created when the health check passes. Health checks operate on the runing state of containers based on the pod selector.
+Define a health check for the `k8s_config`, the resource will only be marked as successfully created when the health check passes. Health checks operate on the running state of containers based on the pod selector.
 
 ```javascript
 health_check {
