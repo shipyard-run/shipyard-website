@@ -219,7 +219,6 @@ image {
 }
 ```
 
-
 ## Type `key_value`
 
 A key_value type allows you to specify a key and and an associated value.

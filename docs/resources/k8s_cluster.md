@@ -146,7 +146,7 @@ Version of the driver to use, for a list of supported values please see the [mat
 Number of client nodes to create for a cluster, a value of 1 creates a combined server and client. Currently only single node clusters are supported.
 
 ### image
-**Type: [[]image](#type-image)**  
+**Type: [image](#type-image)**  
 **Required: false**
 
 The `image` block allows you to specifiy images which will be copied from the local cache to the remote cluster. Kubernetes clusters have their own local Docker image cache, if images are not preloaded to the local cache then Kubernetes will attempt to retrieve these from a remote repository when starting a container.
@@ -155,6 +155,19 @@ The `image` block allows you to specifiy images which will be copied from the lo
 
 Can be specified multiple times.
 
+### volume
+**Type: [volume](container.md/#type-volume)**  
+**Required: false**
+
+A volume allows you to specify a local volume which is mounted to the container when it is created. This stanza can be specified
+multiple times. This can be used to mount custom configuration for custom clusters such as registry configuration for K3s [https://rancher.com/docs/k3s/latest/en/installation/private-registry/](https://rancher.com/docs/k3s/latest/en/installation/private-registry/).
+
+```javascript
+volume {
+  source = "./files/registries.yaml"
+  destination = "/etc/rancher/k3s/registries.yaml"
+}
+```
 
 ## Type `image`
 

@@ -9,26 +9,29 @@ module.exports = {
   docs: {
     "Shipyard Introduction": ['install', 'running', 'wsl2'],
     "Shipyard CLI": [
-      'commands/run',
       'commands/env',
       'commands/purge',
       'commands/push',
+      'commands/run',
       'commands/test',
+      'commands/version',
     ],
     Resources: [
+      'resources/blueprint',
       'resources/container',
-      'resources/sidecar',
+      'resources/exec_remote',
+      'resources/helm',
       'resources/k8s_cluster',
       'resources/k8s_config',
       'resources/k8s_ingress',
-      'resources/helm',
+      'resources/module',
       'resources/nomad_cluster',
       'resources/nomad_job',
       'resources/nomad_ingress',
-      'resources/exec_remote',
-      'resources/module'
+      'resources/sidecar',
     ],
     Tutorials: [
+      'tutorials/creating',
       'tutorials/testing'
     ]
   },
