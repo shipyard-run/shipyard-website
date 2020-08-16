@@ -6,10 +6,8 @@ if [[ $1 == "" ]]; then
   exit 1
 fi
 
-# Check that shipyard is installed if not install it
-if ! [ -x "$(command -v shipyard)" ]; then
-  curl -s https://shipyard.run/install | bash
-fi
+# Always install shipyard
+curl -s https://shipyard.run/install | bash
 
 # apply ths blueprint
 shipyard run --force-update $1

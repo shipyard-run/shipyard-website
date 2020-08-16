@@ -31,7 +31,7 @@ shipyard run github.com/shipyard-run/shipyard-website/examples/container//minima
 
 ## Parameters
 
-### depends_on 
+### depends_on
 **Type: []string**  
 **Required: false**
 
@@ -79,7 +79,7 @@ env {
 }
 ```
 
-Note the above format will be depricated soon to use cleaner map based format.
+Note the above format will be deprecated soon to use cleaner map based format.
 
 ```javascript
 env {
@@ -134,13 +134,13 @@ port {
 **Required: false**
 **Default: false**
 
-Should the container run in Docker privledged mode?
+Should the container run in Docker privileged mode?
 
 ### health_check
 **Type: health_check**  
 **Required: false**
 
-Define a health check for the container, the resource will only be marked as succesfully created when the health check passes.
+Define a health check for the container, the resource will only be marked as successfully created when the health check passes.
 
 ```javascript
 health_check {
@@ -171,14 +171,14 @@ network {
 **Required: false**
 
 Static IP address to assign container for the network, the ip address must be within range defined by the network subnet.
-If this parameter is ommitted an IP address will be automatically assigned.
+If this parameter is omitted an IP address will be automatically assigned.
 
 ### aliases
 **Type: `[]string`**  
 **Required: false**
 
 Aliases allow alternate names to specified for the container. Aliases can be used to reference a container across the network, the container
-will responde to ping and other network resolution using the primary assigned name `[name].container.shipyard.run` and the aliases.
+will respond to ping and other network resolution using the primary assigned name `[name].container.shipyard.run` and the aliases.
 
 ```javascript
 network {
@@ -189,7 +189,7 @@ network {
 
 ## Type `image`
 
-Image defines a Docker image used when creating this container. An Image can be stored in a public or a private repository.  
+Image defines a Docker image used when creating this container. An Image can be stored in a public or a private repository.
 
 ### name
 **Type: `string`**  
@@ -374,7 +374,7 @@ container "unique_name" {
         enable_host   = true
     }
 
-    priviledged = false
+    privileged = false
 }
 
 network "cloud" {

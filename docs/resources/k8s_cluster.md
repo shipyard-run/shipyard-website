@@ -32,7 +32,7 @@ shipyard run github.com/shipyard-run/shipyard-website/examples/k8s_cluster//mini
 
 ## Description
 
-`k8s_cluster` resources run in an issolated Docker container using [Ranchers K3s](https://k3s.io/). On creation the `k8s_cluster` resource adds a Kubernetes Configuration file to your local computer to at the path `${HOME}/.shipyard/config/<cluster name>/kubeconfig.yaml`. This allows you to interact with the cluster using local tooling like `kubectl` and `helm`.
+`k8s_cluster` resources run in an isolated Docker container using [Rancher's K3s](https://k3s.io/). On creation the `k8s_cluster` resource adds a Kubernetes Configuration file to your local computer to at the path `${HOME}/.shipyard/config/<cluster name>/kubeconfig.yaml`. This allows you to interact with the cluster using local tooling like `kubectl` and `helm`.
 
 ```
 ➜ kubectl get pods --all-namespaces
@@ -91,7 +91,7 @@ k8s_config "app" {
 
 ## Exposing resources
 
-Resources running in your Kuberenetes cluster can be exposed using the [k8s_ingress](/docs/resources/k8s_ingress) resource type. The following example shows how a Kubernetes service `vault` port 8200 can be exposed to the local host at port 18200. For more information on the `k8s_ingress` resource please see the documentation [/docs/resouces/k8s_ingress](/docs/resources/k8s_ingress).
+Resources running in your Kubernetes cluster can be exposed using the [k8s_ingress](/docs/resources/k8s_ingress) resource type. The following example shows how a Kubernetes service `vault` port 8200 can be exposed to the local host at port 18200. For more information on the `k8s_ingress` resource please see the documentation [/docs/resouces/k8s_ingress](/docs/resources/k8s_ingress).
 
 ```javascript
 k8s_ingress "vault-http" {
@@ -137,7 +137,7 @@ The `k8s_cluster` resource can create Kubernetes clusters using different versio
 **Type: `string`**  
 **Required: false**
 
-Version of the driver to use, for a list of supported values please see the [matrix](#supported-kuberentes-versions) below. If not specified the latest version of the driver will be used.
+Version of the driver to use, for a list of supported values please see the [matrix](#supported-kubernetes-versions) below. If not specified the latest version of the driver will be used.
 
 ### nodes
 **Type: `int`**  
@@ -201,7 +201,7 @@ image {
 }
 ```
 
-## Supported Kuberentes Versions
+## Supported Kubernetes Versions
 
 Driver | Version
 ------ | --------

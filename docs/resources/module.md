@@ -3,9 +3,8 @@ id: module
 title: Module
 ---
 
-The module resource allows a blueprint to reference other files or blueprints. Blueprints can be referenced from the local file system or from GitHub repositoryies.
-
-It is also possible to attach dependencies to modules and use modules as dependencies in other resources.
+The module resource allows a blueprint to reference other files or blueprints. Blueprints can be referenced from the local file system or from GitHub 
+repositories
 
 
 ## Minimal Example

@@ -3,7 +3,7 @@ id: exec_remote
 title: Remote Exec
 ---
 
-The Remove Exec resource allows the execution of arbitary commands and scripts. Execution can either be in a stand
+The Remove Exec resource allows the execution of arbitrary commands and scripts. Execution can either be in a stand
 alone container or can target an existing and running container.
 
 ## Minimal Example
@@ -132,7 +132,7 @@ One of `target` or `image` must be specified.
 
 Attaches the container to an existing network defined by the `network` resource stanza. This block can be specified multiple times to attach the container to multiple networks.
 
-This block is ignored when `target` is specficied.
+This block is ignored when `target` is specified.
 
 ### image
 **Type: `image`**  
@@ -180,7 +180,7 @@ Set the working directory where the command will be executed.
 An environment stanza allows you to set environment variables in the container. This stanza can be specified multiple times.
 
 ```javascript
-environment {
+env {
   key = "PATH"
   value = "/usr/local/bin"
 }
