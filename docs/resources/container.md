@@ -149,6 +149,11 @@ health_check {
 }
 ```
 
+### resources
+**Type: Resources**  
+**Required: false**
+
+Define resource constraints for the container
 
 ## Type `network_attachment`
 
@@ -330,6 +335,38 @@ The maximum duration to wait before marking the health check as failed. Expresse
 
 The URL to check, health check expects a HTTP status code `200` to be returned by the URL in order to pass the health check. Status code will be user
 configurable at a later date.
+
+## Type `resources`
+
+A resources type allows you to configure the maximum resources which can be consumed.
+
+	CPU    int   `hcl:"cpu,optional" json:"cpu,omitempty"`         // cpu limit for the container where 1 CPU = 1000
+	CPUPin []int `hcl:"cpu_pin,optional" json:"cpu_pin,omitempty"` // pin the container to one or more cpu cores
+	Memory int   `hcl:"memory,optional" json:"memory,omitempty"`   // max memory the container can consume in MB
+
+### cpu
+**Type: `int`**  
+**Required: false**
+
+Set the maximum CPU which can be consumed by the container in MHz, 1 CPU == 1000MHz.
+
+### cpu_pin
+**Type: `[]int`**  
+**Required: false**
+
+Pin the container CPU consumption to one or more logical CPUs. For example to pin the container to the core 1 and 4.
+
+```
+resources {
+  cpi_pin = [1,4]
+}
+```
+
+### memory
+**Type: `string`**  
+**Required: false**
+
+Maximum  memory which a container can consume, specified in Megabytes.
 
 ## Full Example
 
