@@ -340,10 +340,6 @@ configurable at a later date.
 
 A resources type allows you to configure the maximum resources which can be consumed.
 
-	CPU    int   `hcl:"cpu,optional" json:"cpu,omitempty"`         // cpu limit for the container where 1 CPU = 1000
-	CPUPin []int `hcl:"cpu_pin,optional" json:"cpu_pin,omitempty"` // pin the container to one or more cpu cores
-	Memory int   `hcl:"memory,optional" json:"memory,omitempty"`   // max memory the container can consume in MB
-
 ### cpu
 **Type: `int`**  
 **Required: false**
