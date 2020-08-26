@@ -169,6 +169,34 @@ volume {
 }
 ```
 
+### port
+**Type: port**  
+**Required: false**
+
+A port stanza allows you to expose container ports on the local network or host. This stanza can be specified multiple times.
+
+```javascript
+port {
+  local = 80
+  host = 8080
+}
+```
+
+### port_range
+**Type: port_range**  
+**Required: false**
+
+A port_range stanza allows you to expose a range of container ports on the local network or host. This stanza can be specified multiple times.
+
+The following example would create 11 ports from 80 to 90 (inclusive) and expose them to the host machine.
+
+```javascript
+port {
+  range = "80-90"
+  enable_host = true
+}
+```
+
 ## Type `image`
 
 Image defines a Docker image used when creating this container. An Image can be stored in a public or a private repository.
