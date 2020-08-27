@@ -16,7 +16,7 @@ Usage:
   shipyard destroy [file] [flags]
 
 Examples:
-yard destroy
+  shipyard destroy
 
 Flags:
   -h, --help   help for destroy
