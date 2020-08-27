@@ -31,7 +31,7 @@ exec_remote "exec_standalone" {
     "/config/redis.hcl"
   ]
 
-  // Mount a volume containing the config
+  # Mount a volume containing the config
   volume {
     source = "./config"
     destination = "/config"
@@ -106,7 +106,6 @@ Running configuration from:  ./examples/exec_remote/exec_container
 2020-04-29T09:10:05.189+0100 [DEBUG] 
 2020-04-29T09:10:05.435+0100 [DEBUG] Registered service: redis
 ```
-
 
 ## Parameters
 
@@ -196,7 +195,7 @@ Volumes can NOT be attached when a `target` is specified as it is not possible t
 
 ```javascript
 volume {
-  source = "./"
+  source      = "./"
   destination = "/files"
 }
 ```
