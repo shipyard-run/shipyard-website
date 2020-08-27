@@ -7,7 +7,7 @@ Shipyard configuration files can use built in functions which are interpolated a
 
 ```javascript
 output "KUBECONFIG" {
-  value = "${k8s_config("k3s")}"
+  value = k8s_config("k3s")
 }
 ```
 
@@ -21,7 +21,7 @@ The env function can be used to interpolate a system set environment variable in
 ```javascript
 container "consul" {
   image {
-    name = "${env("CONSUL_VERSION")}"
+    name = env("CONSUL_VERSION")
   }
 }
 ```
@@ -33,7 +33,7 @@ The env function can be used to interpolate the path of the Kubernetes config fo
 
 ```javascript
 output "KUBECONFIG" {
-  value = "${k8s_config("k3s")}"
+  value = k8s_config("k3s")
 }
 ```
 
@@ -44,7 +44,7 @@ The home function returns the full path to the current users home folder.
 ```javascript
 container "consul" {
   volume {
-    source = "${home()}"
+    source      = home()
     destination = "/home/nicj"
   }
 }
@@ -57,7 +57,7 @@ The shipyard function returns the full path to the `.shipyard` folder inside you
 ```javascript
 container "consul" {
   volume {
-    source = "${shipyard()}"
+    source      = shipyard()
     destination = "/home/nicj/.shipyard"
   }
 }
@@ -71,7 +71,7 @@ The data function returns the full path to a temporary data folder which is auto
 ```javascript
 container "consul" {
   volume {
-    source = "${data("/consul_data)}"
+    source      = data("/consul_data")
     destination = "/etc/consul/data"
   }
 }
@@ -85,7 +85,7 @@ The file function loads the contents of a file at the given path. Note: This fil
 ```javascript
 container "consul" {
   image {
-    name = "${file("./files/consul_version.txt")}"
+    name = file("./files/consul_version.txt")
   }
 }
 ```
