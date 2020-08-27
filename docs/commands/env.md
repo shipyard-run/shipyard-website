@@ -21,6 +21,8 @@ This blueprint contains environment variables which can be displayed using the "
 
 ## Command Usage
 ```shell
+Prints environment variables defined by the blueprint
+
 Usage:
   shipyard env [flags]
 
