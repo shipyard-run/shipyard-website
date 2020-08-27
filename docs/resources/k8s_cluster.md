@@ -9,10 +9,10 @@ The `k8s_cluster` resource allows the creation of Kubernetes clusters running in
 
 ```javascript
 k8s_cluster "k3s" {
-  driver  = "k3s" // default
-  version = "v1.17.4-k3s1"
+  driver  = "k3s" $ default
+  version = "v1.18.8-k3s1"
 
-  nodes = 1 // default
+  nodes = 1 # default
 
   network {
     name = "network.local"
@@ -26,7 +26,7 @@ network "local" {
 
 ### Run this example:
 
-```
+```shell
 shipyard run github.com/shipyard-run/shipyard-website/examples/k8s_cluster//minimal
 ```
 
@@ -34,7 +34,7 @@ shipyard run github.com/shipyard-run/shipyard-website/examples/k8s_cluster//mini
 
 `k8s_cluster` resources run in an isolated Docker container using [Rancher's K3s](https://k3s.io/). On creation the `k8s_cluster` resource adds a Kubernetes Configuration file to your local computer to at the path `${HOME}/.shipyard/config/<cluster name>/kubeconfig.yaml`. This allows you to interact with the cluster using local tooling like `kubectl` and `helm`.
 
-```
+```shell
 ➜ kubectl get pods --all-namespaces
 NAMESPACE     NAME                                      READY   STATUS    RESTARTS   AGE
 kube-system   local-path-provisioner-58fb86bdfd-w6bg6   1/1     Running   0          111s
@@ -57,7 +57,7 @@ For more information on the `helm` resource type please see the documentation fo
 ```javascript
 helm "vault" {
   cluster = "k8s_cluster.k3s"
-  chart = "github.com/hashicorp/vault-helm"
+  chart   = "github.com/hashicorp/vault-helm"
 
   values_string = {
     "server.dataStorage.size" = "128Mb"
@@ -76,7 +76,7 @@ For more information on the `k8s_config` resource type please see the documentat
 ```javascript
 k8s_config "app" {
   depends_on = ["helm.vault"]
-  cluster = "k8s_cluster.k3s"
+  cluster    = "k8s_cluster.k3s"
 
   paths = [
     "./k8s_config/app",
@@ -95,7 +95,7 @@ Resources running in your Kubernetes cluster can be exposed using the [k8s_ingre
 
 ```javascript
 k8s_ingress "vault-http" {
-  cluster = "k8s_cluster.k3s"
+  cluster  = "k8s_cluster.k3s"
   service  = "vault"
 
   network {
@@ -109,7 +109,6 @@ k8s_ingress "vault-http" {
   }
 }
 ```
-
 
 ## Parameters
 
@@ -164,7 +163,7 @@ multiple times. This can be used to mount custom configuration for custom cluste
 
 ```javascript
 volume {
-  source = "./files/registries.yaml"
+  source      = "./files/registries.yaml"
   destination = "/etc/rancher/k3s/registries.yaml"
 }
 ```
@@ -178,7 +177,7 @@ A port stanza allows you to expose container ports on the local network or host.
 ```javascript
 port {
   local = 80
-  host = 8080
+  host  = 8080
 }
 ```
 
@@ -192,7 +191,7 @@ The following example would create 11 ports from 80 to 90 (inclusive) and expose
 
 ```javascript
 port {
-  range = "80-90"
+  range       = "80-90"
   enable_host = true
 }
 ```
@@ -223,14 +222,14 @@ in place of static values.
 
 ```javascript
 image {
-  name = "myregistry.io/myimage:latest"
-  username = "${env("REGISTRY_USERNAME")}"
-  password = "${env("REGISTRY_PASSWORD")}"
+  name     = "myregistry.io/myimage:latest"
+  username = env("REGISTRY_USERNAME")
+  password = env("REGISTRY_PASSWORD")
 }
 ```
 
 ## Supported Kubernetes Versions
 
-Driver | Version
------- | --------
-k3s    | v1.17.4-k3s1
+Driver  | Version
+------- | --------
+`k3s`   | `v1.18.8-k3s1`

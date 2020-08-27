@@ -17,7 +17,7 @@ output "KUBECONFIG" {
 
 ```javascript
 output "KUBECONFIG" {
-  value = "${k8s_config("k3s")}"
+  value = k8s_config("k3s")
 }
 ```
 

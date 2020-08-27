@@ -22,7 +22,6 @@ k8s_config "app" {
 }
 ```
 
-
 ## Parameters
 
 ### depends_on 
@@ -59,10 +58,9 @@ Define a health check for the `k8s_config`, the resource will only be marked as 
 ```javascript
 health_check {
   timeout = "120s"
-  pods = ["app.kubernetes.io/name=vault"]
+  pods    = ["app.kubernetes.io/name=vault"]
 } 
 ```
-
 
 ## Type `health_check`
 

@@ -3,8 +3,7 @@ id: install
 title: Installing Shipyard
 ---
 
-Shipyard runs on MacOS, Linux and Windows (Natively and with WSL2)
-
+Shipyard runs on macOS, Linux and Windows (natively and with WSL2)
 
 ## Prerequisites
 
@@ -12,7 +11,6 @@ To use Shipyard you need a recent version of Docker and the Git CLI installed on
 
 * [Docker](https://docs.docker.com/) 
 * [Git](https://git-scm.com/)
-
 
 ## Quick install (Linux, Mac and Windows WSL2)
 
@@ -40,7 +38,6 @@ Shipyard version: 0.0.10
  [   OK    ] xdg-open
 ```
 
-
 ## Brew for Mac
 
 Shipyard is published as a [Brew](https://brew.sh) tap to install Shipyard using Homebrew run the following command in your terminal:
@@ -48,7 +45,6 @@ Shipyard is published as a [Brew](https://brew.sh) tap to install Shipyard using
 ```shell
 brew install shipyard-run/homebrew-repo/shipyard
 ```
-
 
 ## Chocolatey for Windows
 

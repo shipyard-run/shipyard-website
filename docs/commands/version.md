@@ -7,7 +7,8 @@ The `version` command allows you to manage the currently installed versions of S
 
 ```shell
 ➜ shipyard version
-Current Version: 0.1.2
+
+Current Version: 0.1.4
 
 Usage:
   shipyard version [flags]
