@@ -19,7 +19,7 @@ container "app" {
   }
 
   env {
-    key = "LISTEN_ADDR"
+    key   = "LISTEN_ADDR"
     value = "127.0.0.1:9090"
   }
 
@@ -28,9 +28,9 @@ container "app" {
   # Sidecars can not directly create ports as they attach to the containers
   # network
   port {
-    local = 80
+    local  = 80
     remote = 80
-    host = 8080
+    host   = 8080
   }
 }
 
@@ -44,7 +44,7 @@ sidecar "envoy" {
   command = ["envoy", "-c", "/config/envoy.yaml"]
 
   volume {
-    source = "./envoyconfig.yaml"
+    source      = "./envoyconfig.yaml"
     destination = "/config/envoy.yaml"
   }
 }
@@ -141,7 +141,7 @@ An env stanza allows you to set environment variables in the container. This sta
 
 ```javascript
 env {
-  key = "PATH"
+  key   = "PATH"
   value = "/usr/local/bin"
 }
 ```
@@ -155,7 +155,7 @@ multiple times.
 
 ```javascript
 volume {
-  source = "./"
+  source      = "./"
   destination = "/files"
 }
 ```
@@ -176,7 +176,7 @@ Define a health check for the container, the resource will only be marked as suc
 ```javascript
 health_check {
   timeout = "30s"
-  http = "http://localhost:8500/v1/status/leader"
+  http    = "http://localhost:8500/v1/status/leader"
 }
 ```
 
@@ -207,12 +207,11 @@ in place of static values.
 
 ```javascript
 image {
-  name = "myregistry.io/myimage:latest"
-  username = "${env("REGISTRY_USERNAME")}"
-  password = "${env("REGISTRY_PASSWORD")}"
+  name     = "myregistry.io/myimage:latest"
+  username = env("REGISTRY_USERNAME")
+  password = env("REGISTRY_PASSWORD")
 }
 ```
-
 
 ## Type `key_value`
 
@@ -257,7 +256,7 @@ The type of the mount, can be one of the following values:
 
 ## Type `health_check`
 
-A health_check stanza allows the definition of a health check which must pass before the container is marked as successfully created.
+A `health_check` stanza allows the definition of a health check which must pass before the container is marked as successfully created.
 
 ### timeout
 **Type: `duration`**  
@@ -281,7 +280,7 @@ container "app" {
   }
 
   env {
-    key = "LISTEN_ADDR"
+    key   = "LISTEN_ADDR"
     value = "127.0.0.1:9090"
   }
 
@@ -290,26 +289,30 @@ container "app" {
   # Sidecars can not directly create ports as they attach to the containers
   # network
   port {
-    local = 80
+    local  = 80
     remote = 80
-    host = 8080
+    host   = 8080
   }
 }
 
 sidecar "envoy" {
   depends_on = ["container.another"]
-  target = "container.app"
+  target     = "container.app"
   
   image {
-    name = "envoyproxy/envoy:v1.14.1"
+    name     = "envoyproxy/envoy:v1.14.1"
     username = "repo_username"
     password = "repo_password"
   }
 
-  command = ["envoy", "-c", "/config/envoy.yaml"]
+  command = [
+    "envoy", 
+    "-c", 
+    "/config/envoy.yaml"
+  ]
 
   volume {
-    source = "./envoyconfig.yaml"
+    source      = "./envoyconfig.yaml"
     destination = "/config/envoy.yaml"
   }
 
@@ -322,6 +325,6 @@ sidecar "envoy" {
 }
 
 network "cloud" {
-    subnet = "10.0.0.0/16"
+  subnet = "10.0.0.0/16"
 }
 ```
