@@ -6,13 +6,15 @@ The purge command deletes cached Docker images, Helm charts or downloaded Bluepr
 
 ## Command Usage
 ```shell
+Purges Docker images, Helm charts, and Blueprints downloaded by Shipyard
+
 Usage:
   shipyard purge [flags]
 
 Examples:
 
   shipyard purge
-
+	
 
 Flags:
   -h, --help   help for purge
