@@ -25,7 +25,7 @@ helm "vault" {
 ```javascript
 helm "vault" {
   cluster = "k8s_cluster.k3s"
-  chart = "./files/helm/vault"
+  chart   = "./files/helm/vault"
 
   values_string = {
     "server.dataStorage.size" = "128Mb"
@@ -96,7 +96,7 @@ Define a health check for the `k8s_config`, the resource will only be marked as 
 ```javascript
 health_check {
   timeout = "120s"
-  pods = ["app.kubernetes.io/name=vault"]
+  pods    = ["app.kubernetes.io/name=vault"]
 } 
 ```
 
