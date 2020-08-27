@@ -23,12 +23,12 @@ The resulting file structure you will create is going to look like this:
 
 When executing the `shipyard run` command Shipyard parses the current folder for `.hcl` files containing resources. It works out the dependencies of these resources and creates a graph which controls the order by which resources are created. For example, you are going to create the following resources in this example.
 
-| resource type | file        |
-| --------------| ----------- |
-| network       | network.hcl |
-| k8s_cluster   | k8s.hcl     |
-| k8s_ingress   | k8s.hcl     |
-| k8s_config    | k8s.hcl     |
+| resource type   | file          |
+| ----------------| ------------- |
+| `network`       | `network.hcl` |
+| `k8s_cluster`   | `k8s.hcl`     |
+| `k8s_ingress`   | `k8s.hcl`     |
+| `k8s_config`    | `k8s.hcl`     |
 
 There is an inherent dependency between these resources, for example, you can not create a Kubernetes cluster unless there is a network to attach it to, and you can not apply Kubernetes config to a cluster which does not exist.
 
@@ -117,10 +117,10 @@ Add the following code to the `k8s.hcl`:
 
 ```javascript
 k8s_cluster "k3s" {
-  driver  = "k3s" // default
+  driver  = "k3s" # default
   version = "v1.17.4-k3s1"
 
-  nodes = 1 // default
+  nodes = 1 # default
 
   network {
     name = "network.local"
@@ -187,7 +187,7 @@ To deploy this application automatically you can use a [k8s_config](/docs/resour
 k8s_config "app" {
   cluster = "k8s_cluster.k3s"
 
-  paths = ["./k8s_app/"]
+  paths            = ["./k8s_app/"]
   wait_until_ready = true
 }
 ```
@@ -312,9 +312,9 @@ k8s_ingress "app" {
   deployment  = "web-deployment"
 
   port {
-    local  = 9090
-    remote = 9090
-    host   = 9090
+    local           = 9090
+    remote          = 9090
+    host            = 9090
     open_in_browser = "/ui"
   }
 }
