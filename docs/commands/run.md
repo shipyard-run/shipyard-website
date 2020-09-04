@@ -27,10 +27,11 @@ Examples:
 
 
 Flags:
-      --force-update     When set to true Shipyard ignores cached images or files and will download all resources
   -h, --help             help for run
+      --force-update     When set to true Shipyard ignores cached images or files and will download all resources
       --no-browser       When set to true Shipyard will not open the browser windows defined in the blueprint
       --var strings      Allows setting variables from the command line, varaiables are specified as a key and value, e.g --var key=value. Can be specified multiple times
+      --vars-file string   Load variables from a location other than *.vars files in the blueprint folder. E.g --vars-file=./file.vars
   -v, --version string   When set, run creates the specified resources using a particular Shipyard version
   -y, --y                When set, Shipyard will not prompt for conifirmation
 ```
@@ -49,4 +50,29 @@ Shipyard caches Docker images, Helm Charts, and Blueprints downloaded from exter
 **Required: false**  
 **Default: false**
 
-Shipyard allows you to optionally define that `
+Shipyard allows you to optionally override the behavior of resources which have browser open parameters. Setting this flag to true stops Shipyard from opening browser windows.
+
+### var
+**Type: `string`**  
+**Required: false**  
+
+The `var` flag allows you to set the value for Shipyard variables from the command line. Setting a variable with this flag takes precedence over any environment variables or variable files.  
+This flag may be specified multiple times.
+
+### vars-file
+**Type: `string`**  
+**Required: false**  
+
+Allows you to specify the location of a variable file. By default Shipyard will attempt to load a `*.vars` file from the Blueprint folder, this flag allows you to specify an additional variables value file.
+
+### version
+**Type: `string`**  
+**Required: false**  
+
+Allows you to create resources with a different version of Shipyard than the installed version. Shipyard will automatically download the other version into a temporary location and run the command using this version. If Shipyard needs to download the version specified by the flag, the user will be prompted for action.
+
+### y
+**Type: `bool`**  
+**Required: false**  
+
+When specified, answers `yes` to any confirmation prompts for the user.
