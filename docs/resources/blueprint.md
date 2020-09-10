@@ -25,8 +25,13 @@ This blueprint shows how you can create a simple Kubernetes cluster
 
 Blueprint READMEs are written in markdown and honor most of the markdown formatting rules for example:
 
+```
 # Headings
+
+A description of this section
+
 ## Headings 2
+```
 
 ### Code blocks
 
@@ -65,24 +70,28 @@ shipyard output
 ## Parameters
 
 ### title
+
 **Type: string**  
 **Required: true**
 
 Set a title for your blueprint
 
 ### author
+
 **Type: string**  
 **Required: true**
 
 Set the author for your blueprint
 
 ### slug
+
 **Type: string**  
 **Required: false**
 
 Set the slug for your blueprint
 
 ### env
+
 **Type: []string**  
 **Required: false**
 
@@ -93,6 +102,7 @@ eval $(shipyard env)
 ```
 
 ### shipyard_version
+
 **Type: string**  
 **Required: false**
 
@@ -113,6 +123,7 @@ Running configuration from:  /home/nicj/go/src/github.com/shipyard-run/examples/
 ```
 
 ### browser_windows
+
 **Type: string**  
 **Required: false**
 

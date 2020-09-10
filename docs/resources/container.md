@@ -74,7 +74,7 @@ An env stanza allows you to set environment variables in the container. This sta
 
 ```javascript
 env {
-  key = "PATH"
+  key   = "PATH"
   value = "/usr/local/bin"
 }
 ```
@@ -96,7 +96,7 @@ multiple times.
 
 ```javascript
 volume {
-  source = "./"
+  source      = "./"
   destination = "/files"
 }
 ```
@@ -110,7 +110,7 @@ A port stanza allows you to expose container ports on the local network or host.
 ```javascript
 port {
   local = 80
-  host = 8080
+  host  = 8080
 }
 ```
 
@@ -124,7 +124,7 @@ The following example would create 11 ports from 80 to 90 (inclusive) and expose
 
 ```javascript
 port {
-  range = "80-90"
+  range       = "80-90"
   enable_host = true
 }
 ```
@@ -145,7 +145,7 @@ Define a health check for the container, the resource will only be marked as suc
 ```javascript
 health_check {
   timeout = "30s"
-  http = "http://localhost:8500/v1/status/leader"
+  http    = "http://localhost:8500/v1/status/leader"
 }
 ```
 
@@ -187,7 +187,7 @@ will respond to ping and other network resolution using the primary assigned nam
 
 ```javascript
 network {
-  name = "network.cloud"
+  name    = "network.cloud"
   aliases = ["alt1.container.shipyard.run", "alt2.container.shipyard.run"]
 }
 ```
@@ -219,8 +219,8 @@ in place of static values.
 ```javascript
 image {
   name = "myregistry.io/myimage:latest"
-  username = "${env("REGISTRY_USERNAME")}"
-  password = "${env("REGISTRY_PASSWORD")}"
+  username = env("REGISTRY_USERNAME")
+  password = env("REGISTRY_PASSWORD")
 }
 ```
 
@@ -263,7 +263,6 @@ The type of the mount, can be one of the following values:
 * bind - bind the source path to the destination path in the container
 * volume - source is a Docker volume
 * tmpfs - create a temporary filesystem
-
 
 ## Type `port`
 
@@ -403,14 +402,14 @@ container "unique_name" {
     }
     
     port_range {
-        range         = "9000-9002"
-        enable_host   = true
+        range       = "9000-9002"
+        enable_host = true
     }
 
     privileged = false
 }
 
 network "cloud" {
-    subnet = "10.0.0.0/16"
+  subnet = "10.0.0.0/16"
 }
 ```

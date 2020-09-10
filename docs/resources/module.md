@@ -14,14 +14,14 @@ network "onprem" {
   subnet = "10.6.0.0/16"
 }
 
-// Reference a local Blueprint stored in a sub folder
+# Reference a local Blueprint stored in a sub folder
 module "consul" {
-	source = "./sub_module"
+  source = "./sub_module"
 }
 
-// Reference a remote Blueprint stored in a GitHub repository
+# Reference a remote Blueprint stored in a GitHub repository
 module "nomad" {
-	source = "github.com/shipyard-run/blueprints//consul-nomad"
+  source = "github.com/shipyard-run/blueprints//consul-nomad"
 }
 ```
 
@@ -55,12 +55,12 @@ Depends On allows you to attach dependencies to module creation, dependencies in
 
 ```javascript
 module "consul" {
-	source = "./sub_module"
+  source = "./sub_module"
 }
 
 // Reference a remote Blueprint stored in a GitHub repository
 module "nomad" {
   depends_on = ["module.consul"]
-	source = "github.com/shipyard-run/blueprints//consul-nomad"
+  source = "github.com/shipyard-run/blueprints//consul-nomad"
 }
 ```

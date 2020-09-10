@@ -9,7 +9,7 @@ The `k8s_ingress` resource allows resources running in a `k8s_cluster` to be exp
 
 ```javascript
 k8s_ingress "vault-http" {
-  cluster = "k8s_cluster.k3s"
+  cluster  = "k8s_cluster.k3s"
   service  = "vault"
 
   network {

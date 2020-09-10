@@ -2,9 +2,11 @@
 id: env
 title: Env
 ---
+
 The env command prints a formatted list of environment variables defined in a blueprint which can be interpreted by the operating system.
 
 **Example blueprint defining environment variables - README.md**
+
 ```
 ---
 title: "Example blueprint file"
@@ -20,7 +22,10 @@ This blueprint contains environment variables which can be displayed using the "
 ```
 
 ## Command Usage
+
 ```shell
+Prints environment variables defined by the blueprint
+
 Usage:
   shipyard env [flags]
 

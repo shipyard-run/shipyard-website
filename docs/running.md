@@ -12,7 +12,6 @@ You can find an example blueprints at the following location:
 
 [https://github.com/shipyard-run/blueprints](https://github.com/shipyard-run/blueprints)
 
-
 ## Running blueprints from the local filesystem
 
 To run a blueprint from your local machine first clone the example blueprints repo:

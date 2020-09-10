@@ -8,7 +8,8 @@ The `run` command reads Shipyard configuration files and uses them to create res
 Run also has a number of flags which can be used to alter the behaviour:
 
 ```shell
-➜ yard-dev run --help
+➜ shipyard help run
+
 Run the supplied stack configuration
 
 Usage:
@@ -21,10 +22,10 @@ Examples:
 
   # Create a stack from a specific file
   shipyard run my-stack/network.hcl
-  
+
   # Create a stack from a blueprint in GitHub
   shipyard run github.com/shipyard-run/blueprints//vault-k8s
-
+	
 
 Flags:
   -h, --help             help for run
@@ -33,7 +34,7 @@ Flags:
       --var strings      Allows setting variables from the command line, varaiables are specified as a key and value, e.g --var key=value. Can be specified multiple times
       --vars-file string   Load variables from a location other than *.vars files in the blueprint folder. E.g --vars-file=./file.vars
   -v, --version string   When set, run creates the specified resources using a particular Shipyard version
-  -y, --y                When set, Shipyard will not prompt for conifirmation
+  -y, --y                When set, Shipyard will not prompt for confirmation
 ```
 
 ## Flags ##

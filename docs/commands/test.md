@@ -2,12 +2,15 @@
 id: test
 title: Test
 ---
+
 Run functional tests for the blueprint, this command will start the Shipyard blueprint specified by the location `[blueprint]` and run any functional tests specified in the `test` subdirectory. 
 
 For more information, take a look at the [Testing Tutorial](/docs/tutorials/testing)
 
 ## Command Usage
 ```shell
+Run functional tests for the blueprint, this command will start the shipyard blueprint
+
 Usage:
   shipyard test [blueprint]
 
@@ -19,6 +22,7 @@ Flags:
 ```
 
 ## Example test
+
 The following example shows a test which would start a blueprint, and assert that the defined resources are created and running, as well as applications defined by the blueprint are accessible and functioning correctly by checking the HTTP response. For more information on the statements please see the [Testing Statements](#testing-statements) section below.
 
 ```javascript
@@ -44,9 +48,10 @@ Scenario: Single Container from Local Blueprint
 ```
 
 ## Running Tests
+
 The following example would test the blueprint in the folder `./examples/container`, functional tests are expressed using the `Gherkin` syntax and stored in the folder `./examples/container/test`.
 
-The `--purge` flag will remove all downloaded images, helm charts, or external blueprints after running the tests. This is to ensure that each scenario has no cached dependencies on the previous test.
+The `--purge` flag will remove all downloaded images, Helm charts, or external blueprints after running the tests. This is to ensure that each scenario has no cached dependencies from a previous test.
 
 ```shell
 shipyard test --purge ./examples/container 
@@ -72,11 +77,13 @@ Feature: Docker Container
 ```
 
 ## Testing Statements
-When writing features the following statements can be used.
+
+When writing features the following statements can be used:
 
 ### Setup
 
 #### I have a running blueprint
+
 The statement `I have a running blueprint` creates the resources in the blueprint.
 
 ```javascript
@@ -86,7 +93,7 @@ Scenario: Single Container from Local Blueprint
 
 #### I have a running blueprint using version `"<version>"`
 
-This statement starts a blueprint using a specific version of Shipyard
+This statement starts a blueprint using a specific version of Shipyard.
 
 ```javascript
 Scenario: Single Container from Local Blueprint
@@ -119,6 +126,7 @@ Scenario: Single Container from Local Blueprint
 ```
 
 #### the environment variable `"<key>"` has a value `"<value>"`
+
 This statement allows you to set environment variables for your blueprints before executing the tests.
 
 ```javascript
@@ -140,6 +148,7 @@ container "consul" {
 When you run your tests the environment variable will be set and interpolated before the blueprint is created.
 
 ### The following environment variables are set
+
 This statement is similar to the previous except you can define the list of environment variables using a table.
 
 ```javascript
@@ -152,6 +161,7 @@ Scenario: Single Container from Local Blueprint
 ```
 
 #### the following shipyard variables are set
+
 This statement allows you to set the value for any Shipyard variables which may be used by the blueprint
 
 ```
@@ -168,6 +178,7 @@ When you run your tests the environment varaible will be set and interpolated be
 ### Assertion
 
 #### there should be a `"<resource type>"` running called `"<name>"`
+
 This statement allows you to write an assertion that a particular resources has been created. The first parameter is the type of the resource and the second the name.
 
 ```javascript
@@ -200,6 +211,7 @@ Scenario: Single Container from Local Blueprint
 ```
 
 #### the response body should contain `"<value>"`
+
 In addition to check the HTTP status code you can also check that a paricular text string is present in the response body.
 
 ```javascript
@@ -310,6 +322,7 @@ Scenario: Single Container from Local Blueprint
 ~~~
 
 ### Matrix testing
+
 In addition to simple tests it is possible to excute a test multiple times using a matrix of values. In the below example the Scenario would run once for every line specified in the `Examples` table.
 
 Values from the `Examples` table can be interpolated at runtime by including the column name encapsulated by `<>` in your test statements. In the below example the environment variables `CONSUL_VERSION` and `ENVOY_VERSION` would be dynamically set to the values from the `Example` table.

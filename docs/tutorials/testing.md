@@ -19,9 +19,9 @@ container "app" {
   }
 
   port {
-    local = 9090
+    local  = 9090
     remote = 9090
-    host = 9090
+    host   = 9090
   }
 }
 ```
