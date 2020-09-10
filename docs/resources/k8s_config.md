@@ -50,7 +50,7 @@ List of files or folders containing valid Kubernetes config.
 If `true` the `k8s_config` blocks until all resources in the specified `paths` progress to the `ready` state. Ready as a state is defined by Kubernetes and varies from resource to resource. For many kinds, ready is true when the resource has been successfully added or modified on the cluster.
 
 ### health_check
-**Type: [HealthCheck](HealthCheck)**  
+**Type: [HealthCheck](#type-health_check)**  
 **Required: true**
 
 Define a health check for the `k8s_config`, the resource will only be marked as succesfully created when the health check passes. Health checks operate on the runing state of containers based on the pod selector.
