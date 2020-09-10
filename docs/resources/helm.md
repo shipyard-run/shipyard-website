@@ -88,7 +88,7 @@ values_string = {
 Kubernetes namespace to install the chart to.
 
 ### health_check
-**Type: [HealthCheck](HealthCheck)**  
+**Type: [HealthCheck](#HealthCheck)**  
 **Required: true**
 
 Define a health check for the `k8s_config`, the resource will only be marked as successfully created when the health check passes. Health checks operate on the running state of containers based on the pod selector.

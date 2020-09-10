@@ -65,7 +65,7 @@ Inside that folder create a file called `network.hcl`, your folder strucutre sho
   | --- network.hcl
 ```
 
-Inside the `network.hcl` file let's create a [network](/docs/resources/network.md) resource called `local` which uses a subnet of `10.10.0.0/16`.
+Inside the `network.hcl` file let's create a [network](resources/network.md) resource called `local` which uses a subnet of `10.10.0.0/16`.
 
 ```javascript
 network "local" {
@@ -103,7 +103,7 @@ Next lets see how you can create the Kubernetes cluster and expose resources in 
 
 ## Creating a Kubernetes cluster
 
-The first thing you need to do is to create a [Kubernetes cluster](/docs/resources/k8s_cluster.md), create a new file called `k8s.hcl` in your `simple_kubernetes` folder.
+The first thing you need to do is to create a [Kubernetes cluster](resources/k8s_cluster.md), create a new file called `k8s.hcl` in your `simple_kubernetes` folder.
 
 Your file structure should now look like:
 
@@ -181,7 +181,7 @@ spec:
           value: "Hello World"
 ```
 
-To deploy this application automatically you can use a [k8s_config](/docs/resources/k8s_config.md) resource. Add the following resource to your k8s.hcl file beneath the `k8s_cluster` resource.  The `cluster` parameter which references the `k8s_cluster` resource lets shipyard know of the dependency and create order between the two resources.
+To deploy this application automatically you can use a [k8s_config](resources/k8s_config.md) resource. Add the following resource to your k8s.hcl file beneath the `k8s_cluster` resource.  The `cluster` parameter which references the `k8s_cluster` resource lets shipyard know of the dependency and create order between the two resources.
 
 ```javascript
 k8s_config "app" {
