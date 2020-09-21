@@ -48,6 +48,12 @@ resources in.
 
 The Kubernetes cluster where the target application is running.
 
+### chart_name
+**Type: `string`**  
+**Required: false**
+
+The name to be given to the deployed chart. If `chart_name` is not specified the name of the resource will be used for the chart name.
+
 ### values
 **Type: `string`**  
 **Required: false**
