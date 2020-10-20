@@ -22,6 +22,7 @@ module.exports = {
       'resources/blueprint',
       'resources/container',
       'resources/exec_remote',
+      'resources/exec_local',
       'resources/helm',
       'resources/k8s_cluster',
       'resources/k8s_config',
