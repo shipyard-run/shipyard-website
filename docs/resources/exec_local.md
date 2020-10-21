@@ -3,7 +3,10 @@ id: exec_local
 title: Local Exec
 ---
 
-The Local Exec resource allows the execution of arbitrary commands and scripts on the local machine.
+The `exec_local` resource allows the execution of arbitrary commands and scripts on the local machine. The command runs in
+the local user space, and has access to all the environment variables that the user executing `shipyard run` has access
+too. Additional environment variables, and the working directory for the command can be specified as part of the resource
+stanza.
 
 ## Minimal Example
 
@@ -32,7 +35,6 @@ exec_remote "exec_standalone" {
 
 Depends on allows you to specify resources which should be created before this one. In the instance of a destruction, this container will be destroyed before
 resources in.
-
 
 ### command
 **Type: string**  
