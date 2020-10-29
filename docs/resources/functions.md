@@ -29,11 +29,34 @@ container "consul" {
 ### k8s_config
 **Parameters: `cluster_name (string)`**
 
-The env function can be used to interpolate the path of the Kubernetes config for a `k8s_cluster` resource created by Shipyard.
+The k8s_config function can be used to interpolate the path of the Kubernetes config for a `k8s_cluster` resource created by Shipyard.
+This can be used to access Kuberentes from the host running Shipyard.
 
 ```javascript
 output "KUBECONFIG" {
   value = k8s_config("k3s")
+}
+```
+
+### k8s_config_docker
+**Parameters: `cluster_name (string)`**
+
+The k8s_config_docker function can be used to interpolate the path of the Kubernetes config for a `k8s_cluster` resource created by Shipyard. Unlike the
+standard k8s_config function, this function returns a Kuberentes config file suitable for accessing the cluster from the Docker network.
+
+```javascript
+container "kubectl" {
+  image   {
+    name = "bitnami/kubectl"
+  }
+
+  command = ["kubectl", "get", "pods"]
+
+  # Map K8s config for remote access to the default location
+  volume {
+    source      = "${k8s_config_docker("k3s")}"
+    destination = "/.kube/config"
+  }
 }
 ```
 
