@@ -112,3 +112,29 @@ container "consul" {
   }
 }
 ```
+
+### docker_ip 
+
+Returns the IP address of the Docker engine Shipyard is using. Normally this will be localhost but in the instance
+that a remote Docker engine has been configured using the `DOCKER_HOST` environment variable this function
+will return only the hostname section of this variable. For example, `DOCKER_HOST=tcp://myhost.com:2375` 
+the function would return `myhost.com`.
+
+```javascript
+output "CONSUL_HTTP_ADDR" {
+  value = "${docker_ip()}:8500"
+}
+```
+
+### docker_host
+
+Returns the value from the environment variable `DOCKER_HOST`.
+
+```javascript
+container "consul" {
+  volume {
+    source = docker_host()
+    destination = "/var/run/docker.sock"
+  }
+}
+```
