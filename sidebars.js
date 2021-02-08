@@ -24,6 +24,7 @@ module.exports = {
       'resources/exec_remote',
       'resources/exec_local',
       'resources/helm',
+      'resources/ingress',
       'resources/k8s_cluster',
       'resources/k8s_config',
       'resources/k8s_ingress',
