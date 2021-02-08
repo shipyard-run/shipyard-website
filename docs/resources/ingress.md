@@ -3,8 +3,9 @@ id: ingress
 title: Ingress
 ---
 
-The `ingress` resource allows you to expose resources in Docker containers, Nomad clusters, and Kubernetes clusters to your local 
-machine. It also allows services on your local machine to be exposed to Nomad, Kubernetes, and Docker.
+The `ingress` resource allows you to expose resources in Kubernetes clusters to your local 
+machine. It also allows services on your local machine to be exposed to Kubernetes. This resource
+will eventually replace all other ingress resources.
 
 ## Example: Expose a Kubernetes service to the local machine
 

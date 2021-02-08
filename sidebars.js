@@ -35,6 +35,7 @@ module.exports = {
       'resources/nomad_ingress',
       'resources/output',
       'resources/sidecar',
+      'resources/variable',
       'resources/functions',
     ],
     Tutorials: [

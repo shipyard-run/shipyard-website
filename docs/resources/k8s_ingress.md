@@ -3,6 +3,8 @@ id: k8s_ingress
 title: Kubernetes Ingress
 ---
 
+**DEPRECATED:** Please use the generic [ingress](ingress) resource. This resource type will be replaced in v0.2.0 of Shipyard.
+
 The `k8s_ingress` resource allows resources running in a `k8s_cluster` to be exposed to the network or local host. Applications running as Kubernetes Deployments, Services, and Pods can be access from other resources or locally using port forwarding.
 
 ## Minimal example
