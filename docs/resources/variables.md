@@ -1,6 +1,6 @@
 ---
 id: variable
-title: Variable
+title: Variables
 ---
 
 The `variable` resource allows you to create modular and reusable configuration. Variables are defined using `variable` 
@@ -83,8 +83,8 @@ container "consul" {
 
 ## Overriding variables
 
-The `variable` resource allows the specification of a default value for a variable. Overriding these variables can be 
-performed using the three following methods.
+The `variable` resource allows the specification of a default value for a variable, overriding these variables can be 
+performed using the three following methods:
 
 ### Variable files
 
@@ -100,10 +100,37 @@ subnet = {
 }
 ```
 
-If a module does not contain
+In addition to variable files being automatically loaded by Shipyard from the module folder you can specify external files
+using the command line flag `--vars-file`. There is no naming convention for variable files specified in this way.
 
+```shell
+shipyard run --vars-file = ./myvariables.defaults ./module 
+```
+
+### Command line arguments
+
+It is possible to override variables using command line arguments, the `run` and `test` commands have the flag
+`--var` which has a value `variable=value` pair that can be used to set a varaible. The `--var` flag can be specified
+multiple times.
+
+```shell
+shipyard run --var "version=1.9.1" --var "another=value" ./module 
+```
+
+### Environment variables 
+
+Lastly you can specify variables using environment variables. To define a variable using an environment variable you 
+prefix the name of the variable with `SH_VAR_`, for example, the variable `version` when set as an environment variable
+would be specified as `SH_VAR_version`.
+
+```shell
+export SH_VAR_version=1.8.2
+```
 
 ### Variable load order
+
+When using variables there is a defined order of precidence. The following list shows the priority order for setting
+varaibles.
 
 * `variable` stanza block
 * `.vars` files found in the config folder

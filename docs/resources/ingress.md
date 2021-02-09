@@ -128,7 +128,7 @@ parameter.
 **Required: true**
 
 The config stanza allows specific configuration for the different driver types. The parameters
-specified inside the config block depend upon wheere it is used. See the [ingress#type-trafficconfig](TrafficConfig)
+specified inside the config block depend upon wheere it is used. See the [TrafficConfig](ingress#type-trafficconfig)
 documentation for more information.
 
 ```javascript
