@@ -113,7 +113,33 @@ container "consul" {
 }
 ```
 
-### docker_ip 
+### file_path
+
+The file_path function returns the absolute path of the current configuration file.
+
+```javascript
+container "consul" {
+  volume {
+    source      = file_path()
+    destination = "/var/data/myfile.hcl"
+  }
+}
+```
+
+### file_dir
+
+The file_dir function returns the absolute directory of the current configuration file.
+
+```javascript
+container "consul" {
+  volume {
+    source      = file_dir()
+    destination = "/var/data/myfiles"
+  }
+}
+```
+
+### docker_ip
 
 Returns the IP address of the Docker engine Shipyard is using. Normally this will be localhost but in the instance
 that a remote Docker engine has been configured using the `DOCKER_HOST` environment variable this function
