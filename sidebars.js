@@ -7,8 +7,8 @@
 
 module.exports = {
   docs: {
-    "Shipyard Introduction": ['install', 'running', 'wsl2'],
-    "Shipyard CLI": [
+    'Shipyard Introduction': ['install', 'running', 'wsl2'],
+    'Shipyard CLI': [
       'commands/destroy',
       'commands/env',
       'commands/output',
@@ -16,7 +16,7 @@ module.exports = {
       'commands/push',
       'commands/run',
       'commands/test',
-      'commands/version',
+      'commands/version'
     ],
     Resources: [
       'resources/blueprint',
@@ -35,12 +35,13 @@ module.exports = {
       'resources/nomad_ingress',
       'resources/output',
       'resources/sidecar',
+      'resources/template',
       'resources/variable',
-      'resources/functions',
+      'resources/functions'
     ],
     Tutorials: [
       'tutorials/creating',
       'tutorials/testing'
     ]
-  },
-};
+  }
+}
