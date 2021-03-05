@@ -164,3 +164,16 @@ container "consul" {
   }
 }
 ```
+
+### shipyard_ip
+
+The shipyard_ip function returns a non loopback IPV4 address for the machine running 
+the `shipyard` run command.
+
+```javascript
+container "tools" {
+  env_vars = {
+     host = shipyard_ip()
+  }
+}
+```
