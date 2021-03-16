@@ -177,3 +177,13 @@ container "tools" {
   }
 }
 ```
+
+### cluster_api
+
+The `cluster_api` function returns the full address for the given clusters API, accessible from the local machine.
+
+```javascript
+output "NOMAD_HTTP_ADDR" {
+  value = ${cluster_api("dev")}
+}
+```
