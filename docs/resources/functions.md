@@ -164,3 +164,26 @@ container "consul" {
   }
 }
 ```
+
+### shipyard_ip
+
+The shipyard_ip function returns a non loopback IPV4 address for the machine running 
+the `shipyard` run command.
+
+```javascript
+container "tools" {
+  env_vars = {
+     host = shipyard_ip()
+  }
+}
+```
+
+### cluster_api
+
+The `cluster_api` function returns the full address for the given clusters API, accessible from the local machine.
+
+```javascript
+output "NOMAD_HTTP_ADDR" {
+  value = ${cluster_api("dev")}
+}
+```
