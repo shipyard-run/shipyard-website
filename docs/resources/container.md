@@ -155,6 +155,13 @@ health_check {
 
 Define resource constraints for the container
 
+### max_restart_count
+**Type: integer**  
+**Required: false**
+**Default: 0**
+
+The maximum number of times a container will be restarted when it exits with a status code other than 0
+
 ## Type `network_attachment`
 
 Network attachment defines a network to which the container is attached.

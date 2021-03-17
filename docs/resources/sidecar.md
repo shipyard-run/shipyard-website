@@ -180,6 +180,12 @@ health_check {
 }
 ```
 
+### max_restart_count
+**Type: integer**  
+**Required: false**
+**Default: 0**
+
+The maximum number of times a sidecar will be restarted when it exits with a status code other than 0
 
 ## Type `image`
 
