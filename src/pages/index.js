@@ -48,9 +48,10 @@ function Home() {
               <pre>
                 curl https://shipyard.run/blueprint | bash -s github.com/shipyard-run/blueprints//vault-k8s
               </pre>
-              <p className={styles.section}>
-                <h2>Or view the <a href="/docs/install">documentation</a> for other installation options.</h2>
-              </p>
+            </div>
+            <div className="col">
+              <h1>For questions and help, join our Discord community</h1>
+              <h1><a href="https://discord.gg/ZuEFPJU69D">https://discord.gg/ZuEFPJU69D</a></h1>
             </div>
           </div>
         </div>

@@ -91,24 +91,45 @@ k8s_config "app" {
 
 ## Exposing resources
 
-Resources running in your Kubernetes cluster can be exposed using the [k8s_ingress](/docs/resources/k8s_ingress) resource type. The following example shows how a Kubernetes service `vault` port 8200 can be exposed to the local host at port 18200. For more information on the `k8s_ingress` resource please see the documentation [/docs/resouces/k8s_ingress](/docs/resources/k8s_ingress).
+Resources running in your Kubernetes cluster can be exposed using the [ingress](/docs/resources/ingress) resource type. The following example shows how a Kubernetes service `vault` port 8200 can be exposed to the local host at port 18200. For more information on the `k8s_ingress` resource please see the documentation [/docs/resouces/k8s_ingress](/docs/resources/ingress).
 
 ```javascript
-k8s_ingress "vault-http" {
-  cluster  = "k8s_cluster.k3s"
-  service  = "vault"
-
-  network {
-    name = "network.cloud"
+ingress "consul-http" {
+  source {
+    driver = "local"
+    
+    config {
+      port = 8500
+    }
   }
-
-  port {
-    local  = 8200
-    remote = 8200
-    host   = 18200
+  
+  destination {
+    driver = "k8s"
+    
+    config {
+      cluster = "k8s_cluster.k3s"
+      address = "consul-server.default.svc"
+      port = 8500
+    }
   }
 }
 ```
+
+## Image Caching
+
+To save bandwidth all containers launched from Kubernetes are cached by Shipyard. Currently images
+from the following registries are cached:
+
+* k8s.gcr.io 
+* gcr.io 
+* asia.gcr.io 
+* eu.gcr.io 
+* us.gcr.io 
+* quay.io
+* ghcr.io"
+* docker.io
+
+To clear the cache, you can use the [purge](/docs/commands/purge) command.
 
 ## Parameters
 
