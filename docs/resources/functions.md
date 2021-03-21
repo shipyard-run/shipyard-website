@@ -184,6 +184,6 @@ The `cluster_api` function returns the full address for the given clusters API, 
 
 ```javascript
 output "NOMAD_HTTP_ADDR" {
-  value = ${cluster_api("dev")}
+  value = ${cluster_api("nomad_cluster.dev")}
 }
 ```
