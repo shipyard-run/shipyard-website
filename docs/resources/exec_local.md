@@ -13,10 +13,10 @@ Log files for `exec_local` are written to `$HOME\.shipyard\logs\[name].log`
 ## Minimal Example
 
 The following example will run the command `consul services register ./config/redis/hcl` and will wait for it to complete.
-If the command takes longer than 30s then it will be automatically killed.
+If the command takes longer than 30s to complete, it will be automatically killed.
 
 ```javascript
-exec_remote "exec_standalone" {
+exec_local "exec_standalone" {
   cmd = "consul"
   args = [
     "services",
