@@ -31,13 +31,6 @@ shipyard run github.com/shipyard-run/shipyard-website/examples/container//minima
 
 ## Parameters
 
-### depends_on
-**Type: []string**  
-**Required: false**
-
-Depends on allows you to specify resources which should be created before this one. In the instance of a destruction, this container will be destroyed before
-resources in.
-
 ### network
 **Type: `network_attachment`**  
 **Required: true**
@@ -329,6 +322,14 @@ The protocol to use when exposing the port, can be "tcp", or "udp".
 
 A health_check stanza allows the definition of a health check which must pass before the container is marked as successfully created.
 
+```javascript
+health_check {
+  duration = "60s"
+  http = "http://myendpoint:9090/health"
+  http_status_codes = [200,429] // optional
+}
+```
+
 ### timeout
 **Type: `duration`**  
 **Required: true**
@@ -339,8 +340,15 @@ The maximum duration to wait before marking the health check as failed. Expresse
 **Type: `string`**  
 **Required: true**
 
-The URL to check, health check expects a HTTP status code `200` to be returned by the URL in order to pass the health check. Status code will be user
-configurable at a later date.
+The URL to check, health check expects a HTTP status code to be returned by the URL in order to pass the health check. HTTP status codes can be specified
+by setting the `http_status_code` parameter. A default code of `200` is configured when `http_status_codes` is not set.
+
+### http_status_codes
+**Type: `[]int`**  
+**Required: false**  
+**Default: [200]**
+
+HTTP status codes returned from the endpoint when called. If the returned status code matches any in the array then the health check will pass.
 
 ## Type `resources`
 
