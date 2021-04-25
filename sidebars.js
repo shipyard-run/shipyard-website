@@ -38,6 +38,7 @@ module.exports = {
       'resources/sidecar',
       'resources/template',
       'resources/variable',
+      'resources/meta',
       'resources/functions'
     ],
     Tutorials: [
