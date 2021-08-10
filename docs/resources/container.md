@@ -45,7 +45,7 @@ to multiple networks.
 Image defines a Docker image to use when creating the container.
 
 ### command
-**Type: []string**  
+**Type: `[]string`**  
 **Required: false**
 
 Command allows you to specify a command to execute when starting a container. Command is specified as an array of strings, each part of the
@@ -60,7 +60,7 @@ command = [
 ```
 
 ### env
-**Type: key_value**  
+**Type: `key_value`**  
 **Required: false**
 
 An env stanza allows you to set environment variables in the container. This stanza can be specified multiple times.
@@ -81,7 +81,7 @@ env {
 ```
 
 ### volume
-**Type: volume**  
+**Type: `volume`**  
 **Required: false**
 
 A volume allows you to specify a local volume which is mounted to the container when it is created. This stanza can be specified
@@ -95,7 +95,7 @@ volume {
 ```
 
 ### port
-**Type: port**  
+**Type: `port`**  
 **Required: false**
 
 A port stanza allows you to expose container ports on the local network or host. This stanza can be specified multiple times.
@@ -108,7 +108,7 @@ port {
 ```
 
 ### port_range
-**Type: port_range**  
+**Type: `port_range`**  
 **Required: false**
 
 A port_range stanza allows you to expose a range of container ports on the local network or host. This stanza can be specified multiple times.
@@ -123,14 +123,14 @@ port {
 ```
 
 ### privileged
-**Type: boolean**  
-**Required: false**
+**Type: `boolean`**  
+**Required: false**  
 **Default: false**
 
 Should the container run in Docker privileged mode?
 
 ### health_check
-**Type: health_check**  
+**Type: `health_check`**  
 **Required: false**
 
 Define a health check for the container, the resource will only be marked as successfully created when the health check passes.
@@ -143,17 +143,31 @@ health_check {
 ```
 
 ### resources
-**Type: Resources**  
+**Type: `resources`**  
 **Required: false**
 
 Define resource constraints for the container
 
 ### max_restart_count
-**Type: integer**  
-**Required: false**
+**Type: `integer`**  
+**Required: false**  
 **Default: 0**
 
 The maximum number of times a container will be restarted when it exits with a status code other than 0
+
+### run_as
+**Type: `run_as`**  
+**Required: false**  
+**Default: container defaults**
+
+Allows the container to be run as a specific user or group.
+
+```javascript
+run_as {
+  user = "1000"
+  group = "nicj"
+}
+```
 
 ## Type `network_attachment`
 
@@ -256,7 +270,7 @@ The destination in the container to mount the volume to, must be an absolute pat
 
 ### type
 **Type: `string "bind", "volume", "tmpfs"`**  
-**Required: false**
+**Required: false**  
 **Default: "bind"**
 
 The type of the mount, can be one of the following values:
@@ -282,14 +296,14 @@ The host port to map the local port to.
 
 ### protocol
 **Type: `string "tcp", "udp"`**  
-**Required: false**
+**Required: false**  
 **Default: "tcp"**
 
 The protocol to use when exposing the port, can be "tcp", or "udp".
 
 ### open_in_browser
 **Type: `string`**  
-**Required: false**
+**Required: false**  
 **Default: "/"**
 
 Should a browser window be automatically opened when this resource is created. Browser windows will open at the path specified by this property.
@@ -306,14 +320,14 @@ The port range to expose, e.g, `8080-8082` would expose the ports `8080`, `8081`
 
 ### enable_host
 **Type: `boolean`**  
-**Required: false**
+**Required: false**  
 **Default: false**
 
 The host port to map the local port to.
 
 ### protocol
 **Type: `string "tcp", "udp"`**  
-**Required: false**
+**Required: false**  
 **Default: "tcp"**
 
 The protocol to use when exposing the port, can be "tcp", or "udp".
@@ -428,3 +442,19 @@ network "cloud" {
   subnet = "10.0.0.0/16"
 }
 ```
+
+## Type `run_as`
+
+User and Group configuration to be used when running a container, by default Docker runs commands in the container as root id 0.
+
+### user
+**Type: `string`**  
+**Required: false**
+
+Linux user ID or user name to run the container as, this overrides the default user configured in the container image. 
+
+### group
+**Type: `string`**  
+**Required: false**
+
+Linux group ID or group name to run the container as, this overrides the default group configured in the container image.
