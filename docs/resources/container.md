@@ -278,6 +278,26 @@ The type of the mount, can be one of the following values:
 * volume - source is a Docker volume
 * tmpfs - create a temporary filesystem
 
+### bind_propagation
+**Type: `string "shared", "slave", "private", "rslave", "rprivate"`**  
+**Required: false**  
+**Default: "rprivate"**
+
+Configures bind propagation for Docker volume mounts, only applies to bind mounts.
+
+For more information please see the Docker documentation [https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation](https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation)
+
+### bind_propagation_non_recursive
+**Type: `boolean`**  
+**Required: false**  
+**Default: false**
+
+We are going to be 100% honest, we have no idea what this option does, but it is a thing so we made it configuable. Would love a PR 
+if you actually know how this is supposed to work.
+
+For more information please see the Docker documentation [https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation](https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation)
+
+
 ## Type `port`
 
 A port stanza defines host to container communications
