@@ -59,7 +59,7 @@ with the the full repository path.
 shipyard run github.com/shipyard-run/blueprints//vault-k8s
 ```
 
-## Stoping a blueprint
+## Stopping a blueprint
 
 To stop a blueprint use the `shipyard destroy` command
 
