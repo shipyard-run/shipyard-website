@@ -16,7 +16,7 @@ from the following registries are cached:
 * eu.gcr.io 
 * us.gcr.io 
 * quay.io
-* ghcr.io"
+* ghcr.io
 * docker.io
 
 To clear the cache, you can use the [purge](/docs/commands/purge) command.
