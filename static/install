@@ -11,7 +11,7 @@ echo "To remove Shipyard and all configuration use the command \"shipyard uninst
 OS=$(uname)
 ARCH=$(uname -m)
 SHIPYARD_OS="linux"
-SHIPYARD_ARCH=arm64"
+SHIPYARD_ARCH="arm64"
 
 if [ "${ARCH}" == "x86_64" ]; then
   SHIPYARD_ARCH="x86_64"
@@ -45,7 +45,7 @@ rm -f /tmp/shipyard
 curl -L -s -o /tmp/shipyard.${SHIPYARD_EXT} "$repo/$binary"
 cd /tmp
 
-${SHIPYARD_COMMAND} shipyard.${SHIPYARD_EXT}
+eval ${SHIPYARD_COMMAND} shipyard.${SHIPYARD_EXT}
 rm shipyard.${SHIPYARD_EXT}
 
 if which sudo; then
