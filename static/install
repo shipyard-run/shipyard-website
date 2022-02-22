@@ -7,17 +7,32 @@ echo "Please note: You may be prompted for your password"
 echo ""
 echo "To remove Shipyard and all configuration use the command \"shipyard uninstall\""
 
-# detect the OS version
-os=$(uname)
+# Determine the OS and architecure 
+OS=$(uname)
+ARCH=$(uname -m)
+SHIPYARD_OS="linux"
+SHIPYARD_ARCH=arm64"
+
+if [ "${ARCH}" == "x86_64" ]; then
+  SHIPYARD_ARCH="X86_64"
+fi
+
+if [ "${ARCH}" == "arm64" ]; then
+  SHIPYARD_ARCH="arm64"
+fi
+  
+if [ "${OS}" == "Linux" ]; then
+  SHIPYARD_OS="linux"
+fi
+  
+if [ "${OS}" == "Darwin" ]; then
+  SHIPYARD_OS="darwin"
+fi
 
 version="$(curl -s https://shipyard.run/latest)"
-binary="shipyard_${version}_Darwin_x86_64.tar.gz"
+binary="shipyard_${version}_${SHIPYARD_OS}_${SHIPYARD_ARCH}.tar.gz"
 
 repo="https://github.com/shipyard-run/shipyard/releases/download/v${version}"
-
-if [[ $os == "Linux" ]]; then
-  binary="shipyard_${version}_Linux_x86_64.tar.gz"
-fi
 
 echo "Downloading $repo/$binary"
 rm -f /tmp/shipyard.tar.gz
