@@ -14,23 +14,23 @@ SHIPYARD_OS="linux"
 SHIPYARD_ARCH=arm64"
 
 if [ "${ARCH}" == "x86_64" ]; then
-  SHIPYARD_ARCH="X86_64"
+  SHIPYARD_ARCH="x86_64"
 fi
 
 if [ "${ARCH}" == "arm64" ]; then
   SHIPYARD_ARCH="arm64"
 fi
-  
+
 if [ "${OS}" == "Linux" ]; then
   SHIPYARD_OS="linux"
   SHIPYARD_EXT="tar.gz"
   SHIPYARD_COMMAND="tar -xzf"
 fi
-  
+
 if [ "${OS}" == "Darwin" ]; then
   SHIPYARD_OS="darwin"
   SHIPYARD_EXT="zip"
-  SHIPYAR_COMMAND="unzip"
+  SHIPYARD_COMMAND="unzip"
 fi
 
 version="$(curl -s https://shipyard.run/latest)"
