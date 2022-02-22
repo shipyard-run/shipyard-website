@@ -23,26 +23,30 @@ fi
   
 if [ "${OS}" == "Linux" ]; then
   SHIPYARD_OS="linux"
+  SHIPYARD_EXT="tar.gz"
+  SHIPYARD_COMMAND="tar -xzf"
 fi
   
 if [ "${OS}" == "Darwin" ]; then
   SHIPYARD_OS="darwin"
+  SHIPYARD_EXT="zip"
+  SHIPYAR_COMMAND="unzip"
 fi
 
 version="$(curl -s https://shipyard.run/latest)"
-binary="shipyard_${version}_${SHIPYARD_OS}_${SHIPYARD_ARCH}.tar.gz"
+binary="shipyard_${version}_${SHIPYARD_OS}_${SHIPYARD_ARCH}.${SHIPYARD_EXT}"
 
 repo="https://github.com/shipyard-run/shipyard/releases/download/v${version}"
 
 echo "Downloading $repo/$binary"
-rm -f /tmp/shipyard.tar.gz
+rm -f /tmp/shipyard.${SHIPYARD_EXT}
 rm -f /tmp/shipyard
 
-curl -L -s -o /tmp/shipyard.tar.gz "$repo/$binary"
+curl -L -s -o /tmp/shipyard.${SHIPYARD_EXT} "$repo/$binary"
 cd /tmp
 
-tar -xzf shipyard.tar.gz
-rm shipyard.tar.gz
+${SHIPYARD_COMMAND} shipyard.${SHIPYARD_EXT}
+rm shipyard.${SHIPYARD_EXT}
 
 if which sudo; then
   sudo mv shipyard /usr/local/bin
