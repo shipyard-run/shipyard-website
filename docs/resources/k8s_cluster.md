@@ -9,8 +9,7 @@ The `k8s_cluster` resource allows the creation of Kubernetes clusters running in
 
 ```javascript
 k8s_cluster "k3s" {
-  driver  = "k3s" $ default
-  version = "v1.18.8-k3s1"
+  driver  = "k3s" # default
 
   nodes = 1 # default
 
@@ -253,4 +252,8 @@ image {
 
 Driver  | Version
 ------- | --------
-`k3s`   | `v1.18.8-k3s1`
+`k3s`   | `v1.22.5`
+`k3s`   | `v1.22.4`
+`k3s`   | `v1.22.3`
+`k3s`   | `v1.22.2`
+
