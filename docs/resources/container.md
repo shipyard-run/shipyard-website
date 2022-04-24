@@ -7,6 +7,8 @@ The `container` resource allows you to run Docker containers.
 
 ## Minimal Example
 
+The following example creates a container from an existing registry image.
+
 ```javascript
 container "unique_name" {
     network {
@@ -20,6 +22,32 @@ container "unique_name" {
 
 network "cloud" {
     subnet = "10.0.0.0/16"
+}
+```
+
+## Build Example
+
+The following example builds a temporary image from the given Dockerfile and context before starting
+the container.
+
+```javascript
+container "build" {
+  build   {
+    file = "./Dockerfile"
+    context = "./src"
+  }
+
+  command = ["/bin/app"]
+
+  port {
+    local = 9090
+    remote = 9090
+    host = 9090
+  }
+
+  network {
+    name = "network.onprem"
+  }
 }
 ```
 
@@ -167,6 +195,32 @@ run_as {
   user = "1000"
   group = "nicj"
 }
+```
+
+### build
+
+**Type: `build`**
+**Required: false**
+
+Build a container from the given file and context before running the container.
+
+```javascript
+build   {
+  file = "./Dockerfile"
+  context = "./src"
+}
+```
+
+Images are cached in the local Docker engine using the following convention.
+
+```shell
+shipyard.run/localcache/<resource_name>:latest
+```
+
+Once cached images are not rebuild with every `run` to force the update of an image you can use the `--force-update` flag with `run`.
+
+```shell
+shipyard run --force-update ./build
 ```
 
 ## Type `network_attachment`
@@ -478,3 +532,18 @@ Linux user ID or user name to run the container as, this overrides the default u
 **Required: false**
 
 Linux group ID or group name to run the container as, this overrides the default group configured in the container image.
+
+## Type `build`
+
+The build stanza allows the building of a Docker image before running the container resource.
+### file
+**Type: `string`**  
+**Required: true**
+
+Docker file to use for the build.
+
+### context
+**Type: `string`**  
+**Required: true**
+
+Path to the context for the build.
