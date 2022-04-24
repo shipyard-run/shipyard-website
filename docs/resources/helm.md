@@ -93,6 +93,20 @@ values_string = {
 
 Kubernetes namespace to install the chart to.
 
+### skip_crds
+**Type: `bool`**  
+**Required: false**
+**Default: "false"**
+
+When set to true, Helm will not install any bundled CRDs for the chart.
+
+### retry
+**Type: `int`**  
+**Required: false**
+**Default: "0"**
+
+When set, the Helm resource will retry the installation of a chart the specified number of times.
+
 ### health_check
 **Type: [HealthCheck](#HealthCheck)**  
 **Required: true**

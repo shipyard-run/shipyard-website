@@ -11,6 +11,7 @@ module.exports = {
       'install', 
       'running', 
       'wsl2'
+      'podman'
     ],
     'Shipyard CLI': [
       'commands/destroy',

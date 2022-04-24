@@ -185,7 +185,7 @@ network {
 }
 ```
 
-### ip_Address
+### ip_address
 **Type: `string`**  
 **Required: false**
 

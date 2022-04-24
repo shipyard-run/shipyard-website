@@ -28,15 +28,50 @@ nomad_cluster "dev" {
   network {
     name = "local"
   }
+  
+  env {
+    key = "CONSUL_SERVER"
+    value = "consul.container.shipyard.run"
+  }
+}
+
+container "consul" {
+  image {
+    name = "consul:1.10.1"
+  }
+
+  command = ["consul", "agent", "-config-file=/config/consul.hcl"]
+
+  volume {
+    source      = "./files"
+    destination = "/config"
+  }
+
+  network {
+    name = "network.local"
+  }
 }
 
 network {
   name = "local"
 }
+
+output "NOMAD_HTTP_ADDR" {
+  value = cluster_api("nomad_cluster.dev")
+}
 ```
 
 ```
 shipyard run github.com/shipyard-run/shipyard-website/examples/nomad_cluster//minimal
+```
+
+Nomad automatically exposes the API port 4646 on the host, however to allow multiple clusters the host port is randomized. To determine the api port
+the Shipyard function `cluster_api` can be used. The following example shows how this can be used as an output variable.
+
+```javascript
+output "NOMAD_HTTP_ADDR" {
+  value = cluster_api("nomad_cluster.dev")
+}
 ```
 
 ## Parameters
