@@ -10,7 +10,7 @@ module.exports = {
     'Shipyard Introduction': [
       'install', 
       'running', 
-      'wsl2'
+      'wsl2',
       'podman'
     ],
     'Shipyard CLI': [
