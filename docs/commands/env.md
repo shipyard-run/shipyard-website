@@ -7,7 +7,7 @@ The env command prints a formatted list of environment variables defined in a bl
 
 **Example blueprint defining environment variables - README.md**
 
-```
+```shell
 ---
 title: "Example blueprint file"
 author: "Nic Jackson"
@@ -19,6 +19,14 @@ env:
 ---
 
 This blueprint contains environment variables which can be displayed using the "env" command.
+```
+
+**Example defining environment variables using output resources**
+
+```javascript
+output "KUBECONFIG" {
+  value = k8s_config("k3s")
+}
 ```
 
 ## Command Usage
@@ -41,9 +49,16 @@ Examples:
   eval $(shipyard env)
     
   # Set environment variables on Windows based systems
-  @FOR /f "tokens=*" %i IN ('shipyard env') DO @%
+  Invoke-Expression "shipyard env" | ForEach-Object { Invoke-Expression $_ }
+
+  # Unset environment variables on Linux based systems
+  eval $(shipyard env --unset)
+
+  # Unset environment variables on Windows based systems
+  Invoke-Expression "shipyard env --unset" | ForEach-Object { Remove-Item $_ }
 
 
 Flags:
-  -h, --help   help for env
+  -h, --help    help for env
+      --unset   When set to true Shipyard will print unset commands for environment variables defined by the blueprint
 ```

@@ -7,6 +7,8 @@ The `container` resource allows you to run Docker containers.
 
 ## Minimal Example
 
+The following example creates a container from an existing registry image.
+
 ```javascript
 container "unique_name" {
     network {
@@ -20,6 +22,32 @@ container "unique_name" {
 
 network "cloud" {
     subnet = "10.0.0.0/16"
+}
+```
+
+## Build Example
+
+The following example builds a temporary image from the given Dockerfile and context before starting
+the container.
+
+```javascript
+container "build" {
+  build   {
+    file = "./Dockerfile"
+    context = "./src"
+  }
+
+  command = ["/bin/app"]
+
+  port {
+    local = 9090
+    remote = 9090
+    host = 9090
+  }
+
+  network {
+    name = "network.onprem"
+  }
 }
 ```
 
@@ -45,7 +73,7 @@ to multiple networks.
 Image defines a Docker image to use when creating the container.
 
 ### command
-**Type: []string**  
+**Type: `[]string`**  
 **Required: false**
 
 Command allows you to specify a command to execute when starting a container. Command is specified as an array of strings, each part of the
@@ -60,7 +88,7 @@ command = [
 ```
 
 ### env
-**Type: key_value**  
+**Type: `key_value`**  
 **Required: false**
 
 An env stanza allows you to set environment variables in the container. This stanza can be specified multiple times.
@@ -81,7 +109,7 @@ env {
 ```
 
 ### volume
-**Type: volume**  
+**Type: `volume`**  
 **Required: false**
 
 A volume allows you to specify a local volume which is mounted to the container when it is created. This stanza can be specified
@@ -95,7 +123,7 @@ volume {
 ```
 
 ### port
-**Type: port**  
+**Type: `port`**  
 **Required: false**
 
 A port stanza allows you to expose container ports on the local network or host. This stanza can be specified multiple times.
@@ -108,7 +136,7 @@ port {
 ```
 
 ### port_range
-**Type: port_range**  
+**Type: `port_range`**  
 **Required: false**
 
 A port_range stanza allows you to expose a range of container ports on the local network or host. This stanza can be specified multiple times.
@@ -123,14 +151,14 @@ port {
 ```
 
 ### privileged
-**Type: boolean**  
-**Required: false**
+**Type: `boolean`**  
+**Required: false**  
 **Default: false**
 
 Should the container run in Docker privileged mode?
 
 ### health_check
-**Type: health_check**  
+**Type: `health_check`**  
 **Required: false**
 
 Define a health check for the container, the resource will only be marked as successfully created when the health check passes.
@@ -143,17 +171,57 @@ health_check {
 ```
 
 ### resources
-**Type: Resources**  
+**Type: `resources`**  
 **Required: false**
 
 Define resource constraints for the container
 
 ### max_restart_count
-**Type: integer**  
-**Required: false**
+**Type: `integer`**  
+**Required: false**  
 **Default: 0**
 
 The maximum number of times a container will be restarted when it exits with a status code other than 0
+
+### run_as
+**Type: `run_as`**  
+**Required: false**  
+**Default: container defaults**
+
+Allows the container to be run as a specific user or group.
+
+```javascript
+run_as {
+  user = "1000"
+  group = "nicj"
+}
+```
+
+### build
+
+**Type: `build`**
+**Required: false**
+
+Build a container from the given file and context before running the container.
+
+```javascript
+build   {
+  file = "./Dockerfile"
+  context = "./src"
+}
+```
+
+Images are cached in the local Docker engine using the following convention.
+
+```shell
+shipyard.run/localcache/<resource_name>:latest
+```
+
+Once cached images are not rebuild with every `run` to force the update of an image you can use the `--force-update` flag with `run`.
+
+```shell
+shipyard run --force-update ./build
+```
 
 ## Type `network_attachment`
 
@@ -171,7 +239,7 @@ network {
 }
 ```
 
-### ip_Address
+### ip_address
 **Type: `string`**  
 **Required: false**
 
@@ -256,13 +324,33 @@ The destination in the container to mount the volume to, must be an absolute pat
 
 ### type
 **Type: `string "bind", "volume", "tmpfs"`**  
-**Required: false**
+**Required: false**  
 **Default: "bind"**
 
 The type of the mount, can be one of the following values:
 * bind - bind the source path to the destination path in the container
 * volume - source is a Docker volume
 * tmpfs - create a temporary filesystem
+
+### bind_propagation
+**Type: `string "shared", "slave", "private", "rslave", "rprivate"`**  
+**Required: false**  
+**Default: "rprivate"**
+
+Configures bind propagation for Docker volume mounts, only applies to bind mounts.
+
+For more information please see the Docker documentation [https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation](https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation)
+
+### bind_propagation_non_recursive
+**Type: `boolean`**  
+**Required: false**  
+**Default: false**
+
+We are going to be 100% honest, we have no idea what this option does, but it is a thing so we made it configuable. Would love a PR 
+if you actually know how this is supposed to work.
+
+For more information please see the Docker documentation [https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation](https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation)
+
 
 ## Type `port`
 
@@ -282,14 +370,14 @@ The host port to map the local port to.
 
 ### protocol
 **Type: `string "tcp", "udp"`**  
-**Required: false**
+**Required: false**  
 **Default: "tcp"**
 
 The protocol to use when exposing the port, can be "tcp", or "udp".
 
 ### open_in_browser
 **Type: `string`**  
-**Required: false**
+**Required: false**  
 **Default: "/"**
 
 Should a browser window be automatically opened when this resource is created. Browser windows will open at the path specified by this property.
@@ -306,14 +394,14 @@ The port range to expose, e.g, `8080-8082` would expose the ports `8080`, `8081`
 
 ### enable_host
 **Type: `boolean`**  
-**Required: false**
+**Required: false**  
 **Default: false**
 
 The host port to map the local port to.
 
 ### protocol
 **Type: `string "tcp", "udp"`**  
-**Required: false**
+**Required: false**  
 **Default: "tcp"**
 
 The protocol to use when exposing the port, can be "tcp", or "udp".
@@ -428,3 +516,34 @@ network "cloud" {
   subnet = "10.0.0.0/16"
 }
 ```
+
+## Type `run_as`
+
+User and Group configuration to be used when running a container, by default Docker runs commands in the container as root id 0.
+
+### user
+**Type: `string`**  
+**Required: false**
+
+Linux user ID or user name to run the container as, this overrides the default user configured in the container image. 
+
+### group
+**Type: `string`**  
+**Required: false**
+
+Linux group ID or group name to run the container as, this overrides the default group configured in the container image.
+
+## Type `build`
+
+The build stanza allows the building of a Docker image before running the container resource.
+### file
+**Type: `string`**  
+**Required: true**
+
+Docker file to use for the build.
+
+### context
+**Type: `string`**  
+**Required: true**
+
+Path to the context for the build.

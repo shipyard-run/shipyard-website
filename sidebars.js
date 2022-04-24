@@ -7,10 +7,16 @@
 
 module.exports = {
   docs: {
-    'Shipyard Introduction': ['install', 'running', 'wsl2'],
+    'Shipyard Introduction': [
+      'install', 
+      'running', 
+      'wsl2'
+      'podman'
+    ],
     'Shipyard CLI': [
       'commands/destroy',
       'commands/env',
+      'commands/log',
       'commands/output',
       'commands/purge',
       'commands/push',
