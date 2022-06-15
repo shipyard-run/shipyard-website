@@ -120,11 +120,11 @@ shipyard run --var "version=1.9.1" --var "another=value" ./module
 ### Environment variables 
 
 Lastly you can specify variables using environment variables. To define a variable using an environment variable you 
-prefix the name of the variable with `SH_VAR_`, for example, the variable `version` when set as an environment variable
-would be specified as `SH_VAR_version`.
+prefix the name of the variable with `SY_VAR_`, for example, the variable `version` when set as an environment variable
+would be specified as `SY_VAR_version`.
 
 ```shell
-export SH_VAR_version=1.8.2
+export SY_VAR_version=1.8.2
 ```
 
 ### Variable load order
@@ -134,6 +134,6 @@ varaibles.
 
 * `variable` stanza block
 * `.vars` files found in the config folder
-* environment variables `SH_VAR_[name]`
+* environment variables `SY_VAR_[name]`
 * command line argumens specified with the `--var` flag
 * variable files specified using the `--var-file` command line flag
