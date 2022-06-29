@@ -8,8 +8,8 @@
 module.exports = {
   docs: {
     'Shipyard Introduction': [
-      'install', 
-      'running', 
+      'install',
+      'running',
       'wsl2',
       'podman'
     ],
@@ -27,6 +27,7 @@ module.exports = {
     Resources: [
       'resources/blueprint',
       'resources/container',
+      'resources/certificate',
       'resources/documentation',
       'resources/exec_remote',
       'resources/exec_local',
