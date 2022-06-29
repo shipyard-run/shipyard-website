@@ -142,6 +142,56 @@ EOF
 }
 ```
 
+## Functions
+
+The `template` resource provides custom functions that can be used inside your templates as shown in the example below.
+
+```javascript
+template "consul_config" {
+
+  source = <<EOF
+
+file_content = "#{{ file "./myfile.txt" }}"
+quote = #{{ .Var.something | quote }} 
+trim = #{{ .Var.with_whitespace | trim | quote }}
+
+EOF
+
+  destination = "./consul_config/consul.hcl"
+
+}
+```
+
+### file [path]
+
+Reads the contents of a file from the given path
+
+```shell
+# given a file ./myfile.txt with the contents "foo bar"
+
+file "./myfile.txt" would return "foo bar"
+```
+
+### quote [string]
+
+Returns the original string wrapped in quotations, quote can be used with the Go template pipe modifier.
+
+```shell
+$ given the string abc
+
+quote "abc" would return the value "abc"
+```
+
+### trim [string]
+
+Removes whitespace such as carrige returns and spaces from the begining and the end of the string, can be used with the Go template pipe modifier.
+
+```shell
+$ given the string abc
+
+trim " abc " would return the value "abc"
+```
+
 ## Parameters
 
 

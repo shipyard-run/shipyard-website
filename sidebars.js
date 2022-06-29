@@ -26,8 +26,9 @@ module.exports = {
     ],
     Resources: [
       'resources/blueprint',
-      'resources/container',
       'resources/certificate',
+      'resources/container',
+      'resources/copy',
       'resources/documentation',
       'resources/exec_remote',
       'resources/exec_local',
